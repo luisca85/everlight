@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Everlight Photo Agency</title>
+  <meta name="description" content="Everlight offers luxury wedding and engagement photography across Sydney, Melbourne and Byron Bay. View our collections and pricing.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="services.html"  class="nav-link active">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="team.html"      class="nav-link">Meet Our Team</a>
+      <a href="contact.html"   class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">What We Offer</span>
+      <h1 class="page-hero-title">Services &<br><em>Collections</em></h1>
+      <div class="page-hero-rule"></div>
+      <p class="page-hero-sub">Every package is crafted to give you peace of mind on your wedding day. We handle the artistry — you enjoy every moment.</p>
+    </div>
+  </div>
+
+  <!-- SERVICES DETAIL -->
+  <section class="services-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">01</span>
+      <span class="eyebrow-title">Services</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-num">01</span>
+        <div class="service-bar"></div>
+        <h2 class="service-title">Weddings</h2>
+        <p class="service-desc">From intimate elopements to grand celebrations, we are there for every meaningful moment. Our approach is documentary-first — we guide gently, photograph authentically, and deliver images that feel like the day actually felt: warm, real and full of life.</p>
+        <p class="service-desc" style="margin-top:14px;">We cover everything from getting ready to the final farewell, adapting to every venue and every couple with the same level of care and artistry.</p>
+        <a href="contact.html" class="service-link" style="margin-top:24px;">Enquire About Availability →</a>
+      </div>
+      <div class="service-card">
+        <span class="service-num">02</span>
+        <div class="service-bar"></div>
+        <h2 class="service-title">Engagements</h2>
+        <p class="service-desc">An engagement session is more than a photo opportunity — it's a chance to feel comfortable in front of the camera before your wedding day. We choose locations that reflect your story, and let the session unfold naturally.</p>
+        <p class="service-desc" style="margin-top:14px;">Most couples tell us their engagement session is the most relaxed they've ever felt being photographed. That ease carries directly into your wedding images.</p>
+        <a href="contact.html" class="service-link" style="margin-top:24px;">Book a Session →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">02</span>
+      <span class="eyebrow-title">Collections &amp; Pricing</span>
+      <div class="eyebrow-line"></div>
+    </div>
+    <div class="packages-grid">
+
+      <!-- 01 · Engagement Session -->
+      <div class="pkg-card">
+        <span class="pkg-badge">✦ Entry Session</span>
+        <h3 class="pkg-name">Engagement <em>Session</em></h3>
+        <div class="pkg-price">$350</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><div class="pkg-dot"></div>60-minute session</li>
+          <li><div class="pkg-dot"></div>One curated location</li>
+          <li><div class="pkg-dot"></div>Styling guidance before your session</li>
+          <li><div class="pkg-dot"></div>15 professionally edited high-resolution images</li>
+          <li><div class="pkg-dot"></div>Private online gallery</li>
+        </ul>
+        <button class="pkg-cta" onclick="window.location='contact.html'">Book Session</button>
+      </div>
+
+      <!-- 02 · Intimate Collection (Most Popular) -->
+      <div class="pkg-card featured" id="pkg-intimate" data-base="1600">
+        <span class="pkg-featured-tag">✦ The Most Popular</span>
+        <span class="pkg-badge">✦ Collection 01</span>
+        <h3 class="pkg-name">Intimate <em>Collection</em></h3>
+        <div class="pkg-price">
+          <span class="pkg-price-from" id="intimate-label">From</span><br>
+          <span id="intimate-price">$1,600</span>
+        </div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><div class="pkg-dot"></div>4 hours photography coverage</li>
+          <li><div class="pkg-dot"></div>1 lead photographer</li>
+          <li><div class="pkg-dot"></div>Ceremony coverage</li>
+          <li><div class="pkg-dot"></div>Couple portraits &amp; family photos</li>
+          <li><div class="pkg-dot"></div>Professionally edited high-resolution images</li>
+          <li><div class="pkg-dot"></div>Private online gallery</li>
+          <li><div class="pkg-dot"></div>Complimentary travel · Melbourne area</li>
+        </ul>
+        <div class="pkg-addons">
+          <p class="pkg-addons-title">Enhancements</p>
+          <label class="pkg-toggle" for="intimate-2nd">
+            <span class="toggle-label">
+              <span class="toggle-name">2nd Photographer</span>
+              <span class="toggle-price">+$400</span>
+            </span>
+            <input type="checkbox" id="intimate-2nd" data-pkg="intimate" data-price="400">
+            <span class="toggle-track"></span>
+          </label>
+          <label class="pkg-toggle" for="intimate-couple">
+            <span class="toggle-label">
+              <span class="toggle-name">Couple Photo Session</span>
+              <span class="toggle-price">+$350</span>
+            </span>
+            <input type="checkbox" id="intimate-couple" data-pkg="intimate" data-price="350">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
+      </div>
+
+      <!-- 03 · Signature Collection -->
+      <div class="pkg-card" id="pkg-signature" data-base="1800">
+        <span class="pkg-badge">✦ Collection 02</span>
+        <h3 class="pkg-name">Signature <em>Collection</em></h3>
+        <div class="pkg-price">
+          <span class="pkg-price-from" id="signature-label">From</span><br>
+          <span id="signature-price">$1,800</span>
+        </div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><div class="pkg-dot"></div>6 hours photography coverage</li>
+          <li><div class="pkg-dot"></div>Getting ready moments</li>
+          <li><div class="pkg-dot"></div>1 lead photographer</li>
+          <li><div class="pkg-dot"></div>Ceremony &amp; reception highlights</li>
+          <li><div class="pkg-dot"></div>Couple portraits &amp; family photos</li>
+          <li><div class="pkg-dot"></div>Professionally edited high-resolution images</li>
+          <li><div class="pkg-dot"></div>Private online gallery</li>
+          <li><div class="pkg-dot"></div>Complimentary travel · Melbourne area</li>
+        </ul>
+        <div class="pkg-addons">
+          <p class="pkg-addons-title">Enhancements</p>
+          <label class="pkg-toggle" for="signature-2nd">
+            <span class="toggle-label">
+              <span class="toggle-name">2nd Photographer</span>
+              <span class="toggle-price">+$400</span>
+            </span>
+            <input type="checkbox" id="signature-2nd" data-pkg="signature" data-price="400">
+            <span class="toggle-track"></span>
+          </label>
+          <label class="pkg-toggle" for="signature-couple">
+            <span class="toggle-label">
+              <span class="toggle-name">Couple Photo Session</span>
+              <span class="toggle-price">+$350</span>
+            </span>
+            <input type="checkbox" id="signature-couple" data-pkg="signature" data-price="350">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
+      </div>
+
+    </div>
+    <div class="pkg-pricing-cta">
+      <a href="contact.html" class="btn-outline">Request Full Pricing Guide</a>
+      <a href="contact.html" class="btn-primary">Book Now</a>
+    </div>
+  </section>
+
+  <!-- FAQ STRIP -->
+  <section style="background:var(--white-linen);padding:88px 80px;border-top:1px solid var(--border);">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="section-eyebrow">
+        <span class="eyebrow-num">03</span>
+        <span class="eyebrow-title">Common Questions</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <!-- FAQ items -->
+        <div style="border-top:1px solid var(--border);padding:26px 0;">
+          <p style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--dark);letter-spacing:0.04em;margin-bottom:12px;">How far in advance should we book?</p>
+          <p style="font-size:13px;color:var(--mid);font-weight:300;line-height:1.8;">We recommend booking 9–12 months in advance, especially for peak season (October–March). That said, reach out regardless — we occasionally have last-minute availability.</p>
+        </div>
+        <div style="border-top:1px solid var(--border);padding:26px 0;">
+          <p style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--dark);letter-spacing:0.04em;margin-bottom:12px;">Do you travel for weddings?</p>
+          <p style="font-size:13px;color:var(--mid);font-weight:300;line-height:1.8;">Yes — we cover Sydney, Melbourne, Byron Bay and surrounding regions. Travel fees may apply for locations outside metropolitan areas. We also travel internationally for destination weddings.</p>
+        </div>
+        <div style="border-top:1px solid var(--border);padding:26px 0;">
+          <p style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--dark);letter-spacing:0.04em;margin-bottom:12px;">When will we receive our images?</p>
+          <p style="font-size:13px;color:var(--mid);font-weight:300;line-height:1.8;">You'll receive a preview gallery within 7 days of your wedding. Your full edited gallery is delivered within 6–8 weeks, via a private online gallery with download access.</p>
+        </div>
+        <div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:26px 0;">
+          <p style="font-family:'Cinzel',serif;font-size:13px;font-weight:600;color:var(--dark);letter-spacing:0.04em;margin-bottom:12px;">Can we request custom packages?</p>
+          <p style="font-size:13px;color:var(--mid);font-weight:300;line-height:1.8;">Every wedding is different. If none of our collections feel like the right fit, get in touch — we're happy to tailor a package to suit your specific day and needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="contact-band">
+    <span class="contact-band-label">Let's Make It Official</span>
+    <h2 class="contact-band-title">Ready to secure<br><em>your wedding date?</em></h2>
+    <p class="contact-band-sub">Dates fill quickly. Reach out today to check availability for your day.</p>
+    <div class="contact-band-btns">
+      <a href="contact.html" class="btn-primary-dark">Start a Conversation</a>
+      <a href="portfolio.html" class="btn-outline-dark">View Our Portfolio</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo-wrap logo-footer">
+          <img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo">
+        </a>
+        <p class="footer-tagline">Timeless · Emotional · Natural<br>Sydney · Melbourne · Byron Bay</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigation</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a><a href="about.html">About</a>
+          <a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+          <a href="team.html">Meet Our Team</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Get In Touch</p>
+        <div class="footer-links">
+          <a href="mailto:hello@everlight.com.au">hello@everlight.com.au</a>
+          <a href="#">+61 XXX XXX XXX</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 Everlight Photo Agency · Sydney · Melbourne · Byron Bay</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">IG</a>
+        <a href="#" class="social-btn">FB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // Dynamic pricing for add-on toggles
+    function updatePackagePrice(pkg) {
+      const card   = document.getElementById('pkg-' + pkg);
+      const base   = parseInt(card.dataset.base, 10);
+      const boxes  = card.querySelectorAll('input[type="checkbox"]');
+      let extras   = 0;
+      boxes.forEach(cb => { if (cb.checked) extras += parseInt(cb.dataset.price, 10); });
+      const total  = base + extras;
+      document.getElementById(pkg + '-price').textContent = '$' + total.toLocaleString();
+      const label  = document.getElementById(pkg + '-label');
+      label.style.visibility = extras > 0 ? 'hidden' : 'visible';
+    }
+
+    document.querySelectorAll('.pkg-toggle input[type="checkbox"]').forEach(cb => {
+      cb.addEventListener('change', () => updatePackagePrice(cb.dataset.pkg));
+    });
+  </script>
+</body>
+</html>

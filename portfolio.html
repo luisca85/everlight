@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Everlight Photo Agency</title>
+  <meta name="description" content="Browse Everlight's wedding and engagement portfolio. Timeless photography across Sydney, Melbourne, Byron Bay and Yarra Valley.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+    .portfolio-cell {
+      aspect-ratio: 3/4;
+      background: var(--warm-cream);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color var(--transition);
+    }
+    .portfolio-cell:hover { border-color: var(--taupe); }
+    .portfolio-cell:nth-child(4n+1) { aspect-ratio: 3/4; }
+    .portfolio-cell:nth-child(4n+2) { aspect-ratio: 3/2; grid-column: span 2; }
+    .portfolio-cell-label {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      right: 16px;
+      font-size: 7.5px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .portfolio-cell:hover .portfolio-cell-label { opacity: 0.8; }
+    .portfolio-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .portfolio-placeholder svg { opacity: 0.18; }
+    .portfolio-placeholder span {
+      font-size: 7.5px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      opacity: 0.45;
+    }
+    .filter-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 8.5px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--mid);
+      padding: 9px 20px;
+      border: 1px solid var(--border);
+      background: transparent;
+      cursor: pointer;
+      font-weight: 300;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--taupe);
+      color: var(--white-linen);
+      border-color: var(--taupe);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="services.html"  class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link active">Portfolio</a>
+      <a href="team.html"      class="nav-link">Meet Our Team</a>
+      <a href="contact.html"   class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">Our Work</span>
+      <h1 class="page-hero-title">A curated look<br>at <em>love stories.</em></h1>
+      <div class="page-hero-rule"></div>
+      <p class="page-hero-sub">Each gallery is a world of its own — different couples, different venues, different moments. What they share is the same authentic, timeless quality we bring to every wedding.</p>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO GRID -->
+  <section style="background:var(--warm-cream);padding:72px 60px 88px;">
+    <div class="filter-bar">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Weddings</button>
+      <button class="filter-btn">Engagements</button>
+      <button class="filter-btn">Melbourne</button>
+      <button class="filter-btn">Sydney</button>
+      <button class="filter-btn">Byron Bay</button>
+      <button class="filter-btn">Yarra Valley</button>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-cell">
+        <img src="images/portfolio-01.png" alt="Wedding ceremony — Melbourne">
+        <span class="portfolio-cell-label">Sarah & James · Melbourne · 2024</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-02.png" alt="Wedding — Byron Bay">
+        <span class="portfolio-cell-label">Emma & Thomas · Byron Bay · 2024</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-03.png" alt="Engagement — Yarra Valley">
+        <span class="portfolio-cell-label">Engagement · Yarra Valley · 2024</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-04.png" alt="Wedding — Sydney">
+        <span class="portfolio-cell-label">Wedding · Sydney · 2024</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-05.png" alt="Wedding — Melbourne">
+        <span class="portfolio-cell-label">Wedding · Melbourne · 2023</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-06.png" alt="Engagement — Sydney">
+        <span class="portfolio-cell-label">Engagement · Sydney · 2023</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-07.png" alt="Wedding — Byron Bay">
+        <span class="portfolio-cell-label">Wedding · Byron Bay · 2023</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-08.png" alt="Details — Melbourne">
+        <span class="portfolio-cell-label">Details · Melbourne · 2023</span>
+      </div>
+      <div class="portfolio-cell">
+        <img src="images/portfolio-09.png" alt="Wedding — Yarra Valley">
+        <span class="portfolio-cell-label">Wedding · Yarra Valley · 2023</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="contact-band">
+    <span class="contact-band-label">Your Story Awaits</span>
+    <h2 class="contact-band-title">Let's create something<br><em>beautiful together.</em></h2>
+    <p class="contact-band-sub">We'd love to add your story to our portfolio.</p>
+    <div class="contact-band-btns">
+      <a href="contact.html" class="btn-primary-dark">Start a Conversation</a>
+      <a href="services.html" class="btn-outline-dark">View Pricing</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo-wrap logo-footer">
+          <img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo">
+        </a>
+        <p class="footer-tagline">Timeless · Emotional · Natural<br>Sydney · Melbourne · Byron Bay</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigation</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a><a href="about.html">About</a>
+          <a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+          <a href="team.html">Meet Our Team</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Get In Touch</p>
+        <div class="footer-links">
+          <a href="mailto:hello@everlight.com.au">hello@everlight.com.au</a>
+          <a href="#">+61 XXX XXX XXX</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 Everlight Photo Agency · Sydney · Melbourne · Byron Bay</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">IG</a>
+        <a href="#" class="social-btn">FB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+    // Filter buttons (visual only — real filtering requires images)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

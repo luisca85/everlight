@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Everlight Photo Agency</title>
+  <meta name="description" content="Ready to book your wedding photography? Get in touch with Everlight Photo Agency. We'd love to hear your story.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="services.html"  class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="team.html"      class="nav-link">Meet Our Team</a>
+      <a href="contact.html"   class="nav-link active">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">Let's Begin</span>
+      <h1 class="page-hero-title">Book Your <em>Date</em></h1>
+      <div class="page-hero-rule"></div>
+      <p class="page-hero-sub">We'd love to be part of your wedding day. Tell us a little about your story and we'll get back to you within 24 hours.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-grid" style="max-width:1100px;margin:0 auto;">
+
+      <!-- Info -->
+      <div>
+        <span class="contact-info-label">Get In Touch</span>
+        <h2 class="contact-info-title">We'd love to hear<br>your story.</h2>
+        <p class="contact-info-text">Every love story is unique. Fill in the form and we'll get back to you within 24 hours. If your date is available, we'll schedule a complimentary call to learn more about your vision.</p>
+
+        <div class="contact-detail-divider"></div>
+
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <p class="contact-detail-value"><a href="mailto:hello@everlight.com.au" style="color:var(--taupe);">hello@everlight.com.au</a></p>
+        </div>
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <p class="contact-detail-value">+61 XXX XXX XXX</p>
+        </div>
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Locations</span>
+          <p class="contact-detail-value">Sydney · Melbourne · Byron Bay · Yarra Valley</p>
+        </div>
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Response Time</span>
+          <p class="contact-detail-value">Within 24 hours</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div>
+        <form action="#" method="POST" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">First Name</label>
+              <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">Last Name</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+61 XXX XXX XXX">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="weddingDate">Wedding Date</label>
+              <input class="form-input" type="date" id="weddingDate" name="weddingDate">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="location">Location / Venue</label>
+              <input class="form-input" type="text" id="location" name="location" placeholder="City or venue name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="package">Interested In</label>
+            <select class="form-select" id="package" name="package">
+              <option value="" disabled selected>Select a collection or service</option>
+              <option value="intimate">Intimate Collection — From $1,600</option>
+              <option value="signature">Signature Collection — From $1,800</option>
+              <option value="engagement">Engagement Session — $350</option>
+              <option value="unsure">Not sure yet — tell me more</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Tell Us About Your Wedding</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Share anything that feels important — your venue, your vision, what matters most to you on the day..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="hearAbout">How Did You Hear About Us?</label>
+            <select class="form-select" id="hearAbout" name="hearAbout">
+              <option value="" disabled selected>Select an option</option>
+              <option value="instagram">Instagram</option>
+              <option value="google">Google Search</option>
+              <option value="referral">Friend / Family Referral</option>
+              <option value="vendor">Wedding Vendor</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="form-submit">Send Enquiry</button>
+          <p class="form-note">We respond within 24 hours · All enquiries are confidential</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="logo-wrap logo-footer">
+          <img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo">
+        </a>
+        <p class="footer-tagline">Timeless · Emotional · Natural<br>Sydney · Melbourne · Byron Bay</p>
+      </div>
+      <div>
+        <p class="footer-col-title">Navigation</p>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="team.html">Meet Our Team</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Get In Touch</p>
+        <div class="footer-links">
+          <a href="mailto:hello@everlight.com.au">hello@everlight.com.au</a>
+          <a href="tel:+61000000000">+61 XXX XXX XXX</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2025 Everlight Photo Agency · Sydney · Melbourne · Byron Bay</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">IG</a>
+        <a href="#" class="social-btn">FB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+  </script>
+</body>
+</html>
