@@ -1226,9 +1226,18 @@ ul { list-style: none; }
   .packages-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
   .services-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
   .testimonial-section { padding: 64px 40px; }
-  .footer { padding: 48px 40px 28px; }
+
+  /* Engagement row — stack zones vertically at tablet */
+  .pkg-card-row { grid-template-columns: 1fr; }
+  .pkg-row-zone-identity::after { display: none; }
+
+  /* Footer */
+  .footer-cta-band { padding: 64px 40px; }
+  .footer-nav-band { padding: 32px 40px; }
+  .footer-nav-inner { grid-template-columns: 1fr; gap: 28px; }
+  .footer-nav-links { justify-content: flex-start; }
+  .footer-nav-right { align-items: flex-start; flex-direction: row; gap: 20px; align-items: center; }
 }
 @media (max-width: 768px) {
   .container { padding: 0 24px; }
@@ -1236,12 +1245,25 @@ ul { list-style: none; }
   .nav-links { display: none; }
   .stats-strip { grid-template-columns: repeat(2,1fr); }
   .stat-item:nth-child(2) { border-right: none; }
-  .gallery-section, .packages-section, .services-section, .gallery-section { padding: 56px 24px; }
+  .gallery-section, .packages-section, .services-section { padding: 56px 24px; }
   .about-section { padding: 56px 24px; }
-  .contact-band { padding: 64px 24px; }
-  .contact-band-btns { flex-direction: column; align-items: center; }
-  .footer-top { grid-template-columns: 1fr; gap: 36px; }
-  .footer { padding: 48px 24px 24px; }
   .pkg-pricing-cta { flex-direction: column; align-items: center; }
   .form-row { grid-template-columns: 1fr; }
+
+  /* Engagement row — compact padding on mobile */
+  .pkg-card-row { grid-template-columns: 1fr; }
+  .pkg-row-zone { padding: 28px 24px; }
+  .pkg-row-zone-identity::after { display: none; }
+  .pkg-row-zone-action { align-items: flex-start; }
+
+  /* Footer */
+  .footer-cta-band { padding: 56px 24px; }
+  .footer-cta-title { font-size: 26px; }
+  .footer-cta-btns { flex-direction: column; align-items: center; width: 100%; }
+  .footer-cta-btns a { width: 100%; text-align: center; }
+  .footer-nav-band { padding: 28px 24px; }
+  .footer-nav-inner { grid-template-columns: 1fr; gap: 20px; }
+  .footer-nav-links { gap: 6px 24px; }
+  .footer-nav-right { flex-direction: row; align-items: center; gap: 16px; }
+  .footer-nav-copy { text-align: left; }
 }

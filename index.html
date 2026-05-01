@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Everlight Photo Agency — Luxury Wedding Photography · Sydney · Melbourne · Byron Bay</title>
+  <title>Everlight Photo Agency — Luxury Wedding Photography · Melbourne</title>
   <meta name="description" content="Everlight is a luxury wedding photography agency based in Australia. Timeless, emotional and natural photography for couples who value artistry above all.">
   <link rel="stylesheet" href="css/style.css">
   <style>
@@ -13,26 +13,28 @@
 </head>
 <body>
 
-  <!-- ════════════════════════════════════════════
-       NAVBAR
-  ════════════════════════════════════════════ -->
+  <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="index.html" class="logo-wrap">
       <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
     </a>
-
     <div class="nav-links">
       <a href="index.html"     class="nav-link active">Home</a>
       <a href="about.html"     class="nav-link">About</a>
       <a href="services.html"  class="nav-link">Services</a>
       <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="team.html"      class="nav-link">Meet Our Team</a>
       <a href="contact.html"   class="nav-link">Contact</a>
+      <div class="nav-social-divider"></div>
+      <a href="https://www.instagram.com/andrearlphotography" class="nav-ig-link" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
     </div>
-
     <a href="contact.html" class="nav-cta">Book Now</a>
   </nav>
-
 
   <!-- ════════════════════════════════════════════
        HERO — Split layout
@@ -46,8 +48,8 @@
           <img src="images/logo-light.png" alt="Everlight Photo Agency" >
         </h1>
         <p class="hero-tagline">
-          Timeless · Emotional · Natural<br>
-          Sydney · Melbourne · Byron Bay
+          5+ Years of Experience · Professional Team · High Event Volume · Natural & Emotion <br>
+          Melbourne 
         </p>
         <div class="hero-cta-row">
           <a href="contact.html"   class="btn-primary">Book Your Date</a>
@@ -82,16 +84,16 @@
       <span class="stat-label">Weddings Captured</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">8+</span>
+      <span class="stat-num">5+</span>
       <span class="stat-label">Years of Experience</span>
     </div>
     <div class="stat-item">
-      <span class="stat-num">3</span>
-      <span class="stat-label">Cities · Australia</span>
+      <span class="stat-num">4</span>
+      <span class="stat-label">Tailored Packages</span>
     </div>
     <div class="stat-item">
       <span class="stat-num">5★</span>
-      <span class="stat-label">Google Reviews</span>
+      <span class="stat-label">Personal Support</span>
     </div>
   </div>
 
@@ -118,7 +120,6 @@
       <p class="about-body">Everlight Photography is an agency specializing in meaningful events such as weddings and engagements. We work with a team of professional photographers guided by a shared vision, capturing natural, genuine and spontaneous moments that reflect the true essence of every couple and family.</p>
     </div>
   </section>
-
 
   <!-- ════════════════════════════════════════════
        PORTFOLIO GALLERY
@@ -163,54 +164,36 @@
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════
-       PACKAGES & PRICING
-  ════════════════════════════════════════════ -->
+  <!-- PACKAGES PREVIEW -->
   <section class="packages-section">
     <div class="section-eyebrow">
-      <span class="eyebrow-num">04</span>
+      <span class="eyebrow-num">02</span>
       <span class="eyebrow-title">Collections &amp; Pricing</span>
       <div class="eyebrow-line"></div>
     </div>
-
     <div class="packages-grid">
 
-      <!-- 01 · Engagement Session -->
-      <div class="pkg-card">
-        <h3 class="pkg-name">Engagement <em>Session</em></h3>
-        <div class="pkg-price">$350</div>
-        <div class="pkg-divider"></div>
-        <ul class="pkg-features">
-          <li><div class="pkg-dot"></div>60-minute session</li>
-          <li><div class="pkg-dot"></div>One curated location</li>
-          <li><div class="pkg-dot"></div>Styling guidance before your session</li>
-          <li><div class="pkg-dot"></div>15 professionally edited high-resolution images</li>
-          <li><div class="pkg-dot"></div>Private online gallery</li>
-        </ul>
-        <button class="pkg-cta" onclick="window.location='contact.html'">Book Session</button>
-      </div>
-
-      <!-- 02 · Intimate Collection (Most Popular) -->
-      <div class="pkg-card featured" id="home-pkg-intimate" data-base="1600">
-        <span class="pkg-featured-tag">✦ The Most Popular</span>
-        <h3 class="pkg-name">Intimate <em>Collection</em></h3>
+      <!-- 01 · The Intimate Experience -->
+      <div class="pkg-card" id="home-pkg-intimate" data-base="1600">
+        <h3 class="pkg-name">The Intimate <em>Experience</em></h3>
+        <p class="pkg-desc">A curated option for smaller celebrations, focused on capturing the most meaningful moments with simplicity and care.</p>
         <div class="pkg-price">
           <span class="pkg-price-from" id="home-intimate-label">From</span><br>
           <span id="home-intimate-price">$1,600</span>
         </div>
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
-          <li><div class="pkg-dot"></div>4 hours photography coverage</li>
-          <li><div class="pkg-dot"></div>1 lead photographer</li>
+          <li><div class="pkg-dot"></div>4 hours of coverage</li>
           <li><div class="pkg-dot"></div>Ceremony coverage</li>
-          <li><div class="pkg-dot"></div>Couple portraits &amp; family photos</li>
+          <li><div class="pkg-dot"></div>Couple portraits</li>
+          <li><div class="pkg-dot"></div>Family &amp; group photography</li>
+          <li><div class="pkg-dot"></div>1 professional photographer</li>
           <li><div class="pkg-dot"></div>Professionally edited high-resolution images</li>
           <li><div class="pkg-dot"></div>Private online gallery</li>
-          <li><div class="pkg-dot"></div>Complimentary travel · Melbourne area</li>
+          <li><div class="pkg-dot"></div>Complimentary travel within Melbourne</li>
         </ul>
         <div class="pkg-addons">
-          <p class="pkg-addons-title">Enhancements</p>
+          <p class="pkg-addons-title">Enhancements Available</p>
           <label class="pkg-toggle" for="home-intimate-2nd">
             <span class="toggle-label">
               <span class="toggle-name">2nd Photographer</span>
@@ -221,7 +204,7 @@
           </label>
           <label class="pkg-toggle" for="home-intimate-couple">
             <span class="toggle-label">
-              <span class="toggle-name">Couple Photo Session</span>
+              <span class="toggle-name">Pre-Wedding Session</span>
               <span class="toggle-price">+$350</span>
             </span>
             <input type="checkbox" id="home-intimate-couple" data-pkg="home-intimate" data-price="350">
@@ -231,26 +214,29 @@
         <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
       </div>
 
-      <!-- 03 · Signature Collection -->
-      <div class="pkg-card" id="home-pkg-signature" data-base="1800">
-        <h3 class="pkg-name">Signature <em>Collection</em></h3>
+      <!-- 02 · The Signature Experience (Most Requested) -->
+      <div class="pkg-card featured" id="home-pkg-signature" data-base="1800">
+        <span class="pkg-featured-tag">✦ Most Requested</span>
+        <h3 class="pkg-name">The Signature <em>Experience</em></h3>
+        <p class="pkg-desc">A complete and refined coverage designed to document your day with depth, intention, and elegance.</p>
         <div class="pkg-price">
           <span class="pkg-price-from" id="home-signature-label">From</span><br>
           <span id="home-signature-price">$1,800</span>
         </div>
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
-          <li><div class="pkg-dot"></div>6 hours photography coverage</li>
+          <li><div class="pkg-dot"></div>6 hours of coverage</li>
           <li><div class="pkg-dot"></div>Getting ready moments</li>
-          <li><div class="pkg-dot"></div>1 lead photographer</li>
           <li><div class="pkg-dot"></div>Ceremony &amp; reception highlights</li>
-          <li><div class="pkg-dot"></div>Couple portraits &amp; family photos</li>
+          <li><div class="pkg-dot"></div>Couple portraits</li>
+          <li><div class="pkg-dot"></div>Family &amp; group photography</li>
+          <li><div class="pkg-dot"></div>1 lead photographer aligned with Everlight's vision</li>
           <li><div class="pkg-dot"></div>Professionally edited high-resolution images</li>
           <li><div class="pkg-dot"></div>Private online gallery</li>
-          <li><div class="pkg-dot"></div>Complimentary travel · Melbourne area</li>
+          <li><div class="pkg-dot"></div>Complimentary travel within Melbourne</li>
         </ul>
         <div class="pkg-addons">
-          <p class="pkg-addons-title">Enhancements</p>
+          <p class="pkg-addons-title">Enhancements Available</p>
           <label class="pkg-toggle" for="home-signature-2nd">
             <span class="toggle-label">
               <span class="toggle-name">2nd Photographer</span>
@@ -261,7 +247,7 @@
           </label>
           <label class="pkg-toggle" for="home-signature-couple">
             <span class="toggle-label">
-              <span class="toggle-name">Couple Photo Session</span>
+              <span class="toggle-name">Pre-Wedding Session</span>
               <span class="toggle-price">+$350</span>
             </span>
             <input type="checkbox" id="home-signature-couple" data-pkg="home-signature" data-price="350">
@@ -271,16 +257,53 @@
         <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
       </div>
 
+      <!-- 03 · Bespoke Experience -->
+      <div class="pkg-card">
+        <h3 class="pkg-name">Bespoke <em>Experience</em></h3>
+        <p class="pkg-desc">For couples seeking a fully personalized approach.</p>
+        <div class="pkg-price pkg-price-custom">Custom investment<br><span class="pkg-price-vision">based on your vision</span></div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li><div class="pkg-dot"></div>Your day is unique — your photography should reflect that</li>
+          <li><div class="pkg-dot"></div>Extended coverage options</li>
+          <li><div class="pkg-dot"></div>Multiple photographers available</li>
+          <li><div class="pkg-dot"></div>Carefully selected additions</li>
+          <li><div class="pkg-dot"></div>Seamless, intentional &amp; elevated result</li>
+        </ul>
+        <p class="pkg-bespoke-note">Guided by our expertise, every detail is considered to create an experience that is truly yours.</p>
+        <button class="pkg-cta" onclick="window.location='contact.html'" style="margin-top:auto">Get in Touch</button>
+      </div>
+
+    </div>
+
+    <!-- Complementary plan: Engagement Session -->
+    <div class="pkg-card-row">
+      <div class="pkg-row-zone pkg-row-zone-identity">
+        <h3 class="pkg-name">Engagement <em>Session</em></h3>
+        <p class="pkg-desc">A relaxed and intentional session to capture your connection in a natural and timeless way.</p>
+      </div>
+      <div class="pkg-row-zone pkg-row-zone-features">
+        <ul class="pkg-card-row-features">
+          <li>60-minute session</li>
+          <li>One curated location</li>
+          <li>Styling guidance</li>
+          <li>15 professionally edited high-resolution images</li>
+          <li>Private online gallery</li>
+        </ul>
+      </div>
+      <div class="pkg-row-zone pkg-row-zone-action">
+        <div class="pkg-price">$350</div>
+        <button class="pkg-cta" onclick="window.location='contact.html'" style="width:160px">Book Session</button>
+      </div>
     </div>
 
     <div class="pkg-pricing-cta">
-      <a href="contact.html"   class="btn-outline">Request Full Pricing Guide</a>
-      <a href="contact.html"   class="btn-primary">Book Now</a>
+      <a href="contact.html" class="btn-outline">Request Full Pricing Guide</a>
+      <a href="services.html" class="btn-primary">View All Services</a>
     </div>
   </section>
 
-
-  <!-- ════════════════════════════════════════════
+    <!-- ════════════════════════════════════════════
        TESTIMONIAL
   ════════════════════════════════════════════ -->
   <section class="testimonial-section">
@@ -322,77 +345,47 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════
-       CONTACT CTA BAND
-  ════════════════════════════════════════════ -->
-  <section class="contact-band">
-    <span class="contact-band-label">Ready to begin?</span>
-    <h2 class="contact-band-title">
-      Your day deserves<br><em>to be remembered forever.</em>
-    </h2>
-    <p class="contact-band-sub">Every wedding we photograph is a privilege. We'd love to hear your story and be part of your most important day.</p>
-    <div class="contact-band-btns">
-      <a href="contact.html" class="btn-primary-dark">Start a Conversation</a>
-      <a href="portfolio.html" class="btn-outline-dark">View Our Work</a>
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════
-       FOOTER
-  ════════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer-top">
-      <!-- Brand col -->
-      <div>
-        <a href="index.html" class="logo-wrap">
-          <img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo">
-        </a>
-        <p class="footer-tagline">
-          Timeless · Emotional · Natural<br>
-          Sydney · Melbourne · Byron Bay
-        </p>
+    <div class="footer-cta-band">
+      <span class="footer-cta-label">Let's Make It Official</span>
+      <h2 class="footer-cta-title">Ready to book your<br><em>wedding date?</em></h2>
+      <p class="footer-cta-sub">Dates fill quickly. Reach out today to check availability for your day.</p>
+      <div class="footer-cta-btns">
+        <a href="contact.html" class="btn-primary-dark">Start a Conversation</a>
+        <a href="portfolio.html" class="btn-outline-dark">View Our Portfolio</a>
       </div>
-
-      <!-- Navigation col -->
-      <div>
-        <p class="footer-col-title">Navigation</p>
-        <div class="footer-links">
+    </div>
+    <div class="footer-nav-band">
+      <div class="footer-nav-inner">
+        <div class="footer-nav-brand">
+          <a href="index.html"><img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo"></a>
+        </div>
+        <nav class="footer-nav-links">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="portfolio.html">Portfolio</a>
-          <a href="team.html">Meet Our Team</a>
           <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-nav-right">
+          <a href="https://www.instagram.com/andrearlphotography" class="footer-ig-icon" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <p class="footer-nav-copy">© 2025 Everlight Photo Agency · Melbourne</p>
         </div>
-      </div>
-
-      <!-- Contact col -->
-      <div>
-        <p class="footer-col-title">Get In Touch</p>
-        <div class="footer-links">
-          <a href="mailto:hello@everlight.com.au">hello@everlight.com.au</a>
-          <a href="tel:+61000000000">+61 XXX XXX XXX</a>
-          <a href="#" target="_blank">Instagram</a>
-          <a href="#" target="_blank">Facebook</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="footer-copyright">© 2025 Everlight Photo Agency · Sydney · Melbourne · Byron Bay</p>
-      <div class="footer-social">
-        <a href="#" class="social-btn" aria-label="Instagram">IG</a>
-        <a href="#" class="social-btn" aria-label="Facebook">FB</a>
       </div>
     </div>
   </footer>
 
-
   <script>
     // Dynamic pricing for add-on toggles
     function updatePackagePrice(pkg) {
-      const card  = document.getElementById('home-pkg-' + pkg.replace('home-',''));
+      const card  = document.getElementById('home-pkg-' + pkg.replace('home-', ''));
       const base  = parseInt(card.dataset.base, 10);
       const boxes = card.querySelectorAll('input[type="checkbox"]');
       let extras  = 0;
