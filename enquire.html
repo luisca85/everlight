@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enquire — Everlight Photo Agency</title>
+  <meta name="description" content="Enquire about your Everlight photography package. Tell us about your event and we'll get in touch to discuss your date.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Plan Strip ── */
+    .plan-strip {
+      background: var(--dark);
+      border-bottom: 1px solid rgba(184,152,128,0.15);
+      padding: 18px 64px;
+      position: sticky;
+      top: 72px;
+      z-index: 90;
+    }
+    .plan-strip-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .plan-strip-left { display: flex; flex-direction: column; gap: 2px; }
+    .plan-strip-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      font-weight: 300;
+    }
+    .plan-strip-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--white-linen);
+      letter-spacing: 0.05em;
+    }
+    .plan-strip-enhancements {
+      font-size: 12px;
+      color: rgba(212,185,150,0.55);
+      font-weight: 300;
+      margin-top: 1px;
+    }
+    .plan-strip-right { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+    .plan-strip-badge {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      font-weight: 300;
+    }
+    .plan-strip-price {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--champagne);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Main layout ── */
+    .enquire-main {
+      background: var(--white-linen);
+      min-height: calc(100vh - 72px - 72px);
+      padding: 72px 64px 100px;
+    }
+    .enquire-container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Step nav ── */
+    .step-nav {
+      display: flex;
+      align-items: center;
+      margin-bottom: 56px;
+    }
+    .step-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(122,111,102,0.5);
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    .step-item.active { color: var(--dark); }
+    .step-item.done { color: var(--taupe); }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 400;
+      flex-shrink: 0;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+      font-family: var(--font-body);
+    }
+    .step-item.active .step-num { background: var(--dark); color: var(--white-linen); border-color: var(--dark); }
+    .step-item.done .step-num { background: var(--taupe); color: var(--white-linen); border-color: var(--taupe); }
+    .step-connector {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+      margin: 0 12px;
+      transition: background 0.3s;
+    }
+    .step-connector.done { background: var(--taupe); }
+
+    /* ── Step panels ── */
+    .eq-step { display: none; }
+    .eq-step.active { display: block; }
+    .eq-step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .eq-step-sub {
+      font-size: 14px;
+      color: var(--mid);
+      font-weight: 300;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    /* ── Form fields ── */
+    .eq-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .eq-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .eq-field-full { grid-column: 1 / -1; }
+    .eq-field label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 400;
+    }
+    .req { color: var(--taupe); }
+    .eq-field input,
+    .eq-field textarea,
+    .eq-field select {
+      background: var(--warm-cream);
+      border: 1px solid var(--border);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--dark);
+      font-weight: 300;
+      transition: border-color 0.3s;
+      outline: none;
+      width: 100%;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+    .eq-field input:focus,
+    .eq-field textarea:focus,
+    .eq-field select:focus { border-color: var(--taupe); }
+    .eq-field input.error { border-color: #b94a4a; }
+    .eq-field input[type="date"] { color: var(--dark); }
+    .eq-field textarea { resize: vertical; min-height: 110px; }
+    .field-error {
+      font-size: 11px;
+      color: #b94a4a;
+      font-weight: 300;
+      display: none;
+    }
+    .field-error.visible { display: block; }
+
+    /* ── Availability chips ── */
+    .avail-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .avail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .avail-chip {
+      position: relative;
+      cursor: pointer;
+      display: block;
+    }
+    .avail-chip input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+    .avail-chip span {
+      display: block;
+      text-align: center;
+      padding: 12px 8px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 400;
+      background: var(--warm-cream);
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      user-select: none;
+    }
+    .avail-chip input:checked + span {
+      background: var(--dark);
+      color: var(--champagne);
+      border-color: var(--dark);
+    }
+    .avail-chip:hover span { border-color: var(--taupe); }
+
+    /* ── Actions bar ── */
+    .eq-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    .eq-actions-right { display: flex; align-items: center; gap: 12px; }
+
+    /* ── Spinner inside button ── */
+    .btn-spinner { display: none; }
+    .btn-primary.loading .btn-text { display: none; }
+    .btn-primary.loading .btn-spinner { display: inline; }
+
+    /* ── Confirmation screen ── */
+    .confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(184,152,128,0.15);
+      border: 1px solid rgba(184,152,128,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .confirm-icon svg { width: 24px; height: 24px; stroke: var(--taupe); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .confirm-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+      text-align: center;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .confirm-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+    .confirm-summary {
+      border: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .confirm-summary-header {
+      background: var(--linen);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+    }
+    .confirm-summary-header p {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--taupe);
+      margin-bottom: 4px;
+      font-weight: 300;
+    }
+    .confirm-summary-header h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+    }
+    .confirm-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      gap: 16px;
+    }
+    .confirm-row:last-child { border-bottom: none; }
+    .confirm-row-label { color: var(--mid); font-weight: 300; flex-shrink: 0; }
+    .confirm-row-value { color: var(--dark); font-weight: 400; text-align: right; }
+    .confirm-contact {
+      background: var(--warm-cream);
+      border: 1px solid var(--border-mid);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .confirm-contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(184,152,128,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .confirm-contact-icon svg { width: 16px; height: 16px; stroke: var(--taupe); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .confirm-contact-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .confirm-contact-text p {
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    .confirm-contact-text a { color: var(--taupe); text-decoration: underline; text-underline-offset: 3px; }
+    .confirm-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Error banner ── */
+    .form-error-banner {
+      background: #fdf2f2;
+      border: 1px solid #f0c0c0;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #8b3a3a;
+      font-weight: 300;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .form-error-banner.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="services.html"  class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="contact.html"   class="nav-link">Contact</a>
+      <div class="nav-social-divider"></div>
+      <a href="https://www.instagram.com/andrearlphotography" class="nav-ig-link" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+    <a href="services.html" class="nav-cta">View Plans</a>
+  </nav>
+
+  <!-- PLAN STRIP -->
+  <div class="plan-strip" id="plan-strip">
+    <div class="plan-strip-inner">
+      <div class="plan-strip-left">
+        <span class="plan-strip-label">Selected Package</span>
+        <span class="plan-strip-name" id="strip-plan-name">—</span>
+        <span class="plan-strip-enhancements" id="strip-enhancements"></span>
+      </div>
+      <div class="plan-strip-right">
+        <span class="plan-strip-badge">Agreed Investment</span>
+        <span class="plan-strip-price" id="strip-price">—</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENQUIRE MAIN -->
+  <main class="enquire-main">
+    <div class="enquire-container">
+
+      <!-- Step indicator -->
+      <div class="step-nav" id="step-nav">
+        <div class="step-item active" id="step-nav-1">
+          <div class="step-num" id="step-num-1">1</div>
+          <span>Your Details</span>
+        </div>
+        <div class="step-connector" id="step-conn-1"></div>
+        <div class="step-item" id="step-nav-2">
+          <div class="step-num" id="step-num-2">2</div>
+          <span>Availability</span>
+        </div>
+        <div class="step-connector" id="step-conn-2"></div>
+        <div class="step-item" id="step-nav-3">
+          <div class="step-num" id="step-num-3">3</div>
+          <span>Confirmation</span>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form id="enquire-form" novalidate>
+        <!-- Web3Forms hidden fields -->
+        <!-- ⚠️  Replace YOUR_WEB3FORMS_KEY with the key from https://web3forms.com -->
+        <input type="hidden" name="access_key"   value="YOUR_WEB3FORMS_KEY">
+        <input type="hidden" name="from_name"    value="Everlight Website">
+        <input type="hidden" name="subject"      id="form-subject">
+        <input type="hidden" name="replyto"      id="form-replyto">
+        <input type="hidden" name="Package"      id="form-package">
+        <input type="hidden" name="Price"        id="form-price">
+        <input type="hidden" name="Enhancements" id="form-enhancements">
+        <!-- Spam honeypot -->
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <!-- STEP 1: Your Details -->
+        <section id="step-1" class="eq-step active">
+          <h2 class="eq-step-title">Your Details</h2>
+          <p class="eq-step-sub">Tell us about yourself and your event so we can prepare for our call — this only takes a minute.</p>
+
+          <div id="banner-step1" class="form-error-banner">Please fill in all required fields before continuing.</div>
+
+          <div class="eq-field-row">
+            <div class="eq-field">
+              <label for="first_name">First Name <span class="req">*</span></label>
+              <input type="text" id="first_name" name="First Name" required autocomplete="given-name" placeholder="Andrea">
+              <span class="field-error" id="err-first_name">Required</span>
+            </div>
+            <div class="eq-field">
+              <label for="last_name">Last Name <span class="req">*</span></label>
+              <input type="text" id="last_name" name="Last Name" required autocomplete="family-name" placeholder="Romano">
+              <span class="field-error" id="err-last_name">Required</span>
+            </div>
+          </div>
+
+          <div class="eq-field-row">
+            <div class="eq-field">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="Email" required autocomplete="email" placeholder="you@example.com">
+              <span class="field-error" id="err-email">Please enter a valid email</span>
+            </div>
+            <div class="eq-field">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="Phone" required autocomplete="tel" placeholder="04XX XXX XXX">
+              <span class="field-error" id="err-phone">Required</span>
+            </div>
+          </div>
+
+          <div class="eq-field-row">
+            <div class="eq-field">
+              <label for="event_date">Wedding / Event Date <span class="req">*</span></label>
+              <input type="date" id="event_date" name="Event Date" required>
+              <span class="field-error" id="err-event_date">Required</span>
+            </div>
+            <div class="eq-field">
+              <label for="venue">Venue / Location</label>
+              <input type="text" id="venue" name="Venue" placeholder="e.g. Melbourne, Byron Bay…">
+            </div>
+          </div>
+
+          <div class="eq-actions">
+            <a href="services.html" class="btn-outline" style="font-size:11px;padding:12px 24px;">← Back to Plans</a>
+            <button type="button" class="btn-primary" id="btn-next-1" style="font-size:11px;padding:12px 28px;">Next →</button>
+          </div>
+        </section>
+
+        <!-- STEP 2: Availability -->
+        <section id="step-2" class="eq-step">
+          <h2 class="eq-step-title">When can we call you?</h2>
+          <p class="eq-step-sub">Select your preferred days and time — we'll do our best to reach you during that window.</p>
+
+          <div id="banner-step2" class="form-error-banner">Please select at least one preferred day and time.</div>
+
+          <p class="avail-label">Preferred Days <span class="req">*</span></p>
+          <div class="avail-grid">
+            <label class="avail-chip">
+              <input type="checkbox" name="Preferred Days" value="Mon – Wed">
+              <span>Mon – Wed</span>
+            </label>
+            <label class="avail-chip">
+              <input type="checkbox" name="Preferred Days" value="Thu – Fri">
+              <span>Thu – Fri</span>
+            </label>
+            <label class="avail-chip">
+              <input type="checkbox" name="Preferred Days" value="Weekends">
+              <span>Weekends</span>
+            </label>
+          </div>
+
+          <p class="avail-label">Preferred Time <span class="req">*</span></p>
+          <div class="avail-grid">
+            <label class="avail-chip">
+              <input type="checkbox" name="Preferred Time" value="Morning (9am – 12pm)">
+              <span>Morning</span>
+            </label>
+            <label class="avail-chip">
+              <input type="checkbox" name="Preferred Time" value="Afternoon (12pm – 5pm)">
+              <span>Afternoon</span>
+            </label>
+            <label class="avail-chip">
+              <input type="checkbox" name="Preferred Time" value="Evening (5pm – 8pm)">
+              <span>Evening</span>
+            </label>
+          </div>
+
+          <div class="eq-field" style="margin-bottom:0">
+            <label for="message">Anything you'd like us to know?</label>
+            <textarea id="message" name="Message" placeholder="Tell us about your venue, vision, or any questions you have…"></textarea>
+          </div>
+
+          <div class="eq-actions">
+            <button type="button" class="btn-outline" id="btn-back-2" style="font-size:11px;padding:12px 24px;">← Back</button>
+            <button type="submit" class="btn-primary" id="btn-submit" style="font-size:11px;padding:12px 28px;min-width:160px;">
+              <span class="btn-text">Submit Enquiry</span>
+              <span class="btn-spinner">Sending…</span>
+            </button>
+          </div>
+        </section>
+
+      </form>
+
+      <!-- STEP 3: Confirmation (outside form) -->
+      <section id="step-3" class="eq-step">
+        <div class="confirm-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h2 class="confirm-title">We've received your enquiry!</h2>
+        <p class="confirm-sub">
+          Thank you — we'll review your details and get in touch within<br>
+          <strong style="color:var(--dark);font-weight:400;">24 – 48 business hours.</strong>
+        </p>
+
+        <!-- Enquiry summary -->
+        <div class="confirm-summary">
+          <div class="confirm-summary-header">
+            <p>Your Selected Package</p>
+            <h4 id="conf-plan-name">—</h4>
+          </div>
+          <div class="confirm-row" id="conf-row-enhancements" style="display:none">
+            <span class="confirm-row-label">Enhancements</span>
+            <span class="confirm-row-value" id="conf-enhancements">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row-label">Agreed Investment</span>
+            <span class="confirm-row-value" id="conf-price" style="font-family:var(--font-display);font-size:16px;color:var(--taupe);">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row-label">Event Date</span>
+            <span class="confirm-row-value" id="conf-event-date">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row-label">Callback Window</span>
+            <span class="confirm-row-value" id="conf-availability">—</span>
+          </div>
+          <div class="confirm-row">
+            <span class="confirm-row-label">Your Email</span>
+            <span class="confirm-row-value" id="conf-email">—</span>
+          </div>
+        </div>
+
+        <!-- Direct contact -->
+        <div class="confirm-contact">
+          <div class="confirm-contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+          </div>
+          <div class="confirm-contact-text">
+            <strong>Prefer to talk sooner?</strong>
+            <p>
+              You can also reach us directly at
+              <a href="mailto:luisca85@gmail.com">luisca85@gmail.com</a>
+              or on Instagram
+              <a href="https://www.instagram.com/andrearlphotography" target="_blank">@andrearlphotography</a>.
+            </p>
+          </div>
+        </div>
+
+        <div class="confirm-actions">
+          <a href="index.html" class="btn-outline" style="font-size:11px;padding:12px 28px;">Back to Home</a>
+          <a href="portfolio.html" class="btn-primary" style="font-size:11px;padding:12px 28px;">View Our Portfolio →</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-nav-band">
+      <div class="footer-nav-inner">
+        <div class="footer-nav-brand">
+          <a href="index.html"><img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo"></a>
+        </div>
+        <nav class="footer-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-nav-right">
+          <a href="https://www.instagram.com/andrearlphotography" class="footer-ig-icon" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <p class="footer-nav-copy">© 2025 Everlight Photo Agency · Melbourne</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Navbar scroll effect ──────────────────────────────────
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // ── Read URL params and populate plan strip ───────────────
+    const params  = new URLSearchParams(window.location.search);
+    const planName   = params.get('plan')         || 'Enquiry';
+    const planPrice  = params.get('price')        || '';
+    const planEnh    = params.get('enhancements') || '';
+
+    document.getElementById('strip-plan-name').textContent  = planName;
+    document.getElementById('strip-price').textContent      = planPrice ? '$' + Number(planPrice).toLocaleString() : '—';
+    if (planEnh) {
+      const enhList = planEnh.split('|').map(e => e.split(':')[0]);
+      document.getElementById('strip-enhancements').textContent = '+ ' + enhList.join(' · ');
+    }
+
+    // Pre-fill hidden form fields
+    document.getElementById('form-subject').value      = 'New Enquiry — ' + planName + ' — Everlight';
+    document.getElementById('form-package').value      = planName;
+    document.getElementById('form-price').value        = planPrice ? '$' + Number(planPrice).toLocaleString() : 'Custom';
+    document.getElementById('form-enhancements').value = planEnh
+      ? planEnh.split('|').map(e => {
+          const [name, price] = e.split(':');
+          return name + (price ? ' (+$' + price + ')' : '');
+        }).join(', ')
+      : 'None';
+
+    // ── Step management ───────────────────────────────────────
+    let currentStep = 1;
+
+    function setStep(n) {
+      // Hide all steps
+      document.querySelectorAll('.eq-step').forEach(s => s.classList.remove('active'));
+      document.getElementById('step-' + n).classList.add('active');
+      currentStep = n;
+
+      // Update step nav indicators
+      for (let i = 1; i <= 3; i++) {
+        const navItem = document.getElementById('step-nav-' + i);
+        const numEl   = document.getElementById('step-num-' + i);
+        navItem.classList.remove('active', 'done');
+        if (i < n) {
+          navItem.classList.add('done');
+          numEl.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        } else if (i === n) {
+          navItem.classList.add('active');
+          numEl.textContent = i;
+        } else {
+          numEl.textContent = i;
+        }
+        // Connectors
+        if (i < 3) {
+          document.getElementById('step-conn-' + i).classList.toggle('done', i < n);
+        }
+      }
+
+      // Hide plan strip on confirmation
+      document.getElementById('plan-strip').style.display = n === 3 ? 'none' : '';
+      // Hide step nav on confirmation
+      document.getElementById('step-nav').style.display = n === 3 ? 'none' : '';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── Validation helpers ────────────────────────────────────
+    function validateField(id, customCheck) {
+      const el    = document.getElementById(id);
+      const errEl = document.getElementById('err-' + id);
+      const valid = customCheck ? customCheck(el.value.trim()) : el.value.trim().length > 0;
+      el.classList.toggle('error', !valid);
+      if (errEl) errEl.classList.toggle('visible', !valid);
+      return valid;
+    }
+
+    function validateEmail(val) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    }
+
+    // ── Step 1 → Step 2 ──────────────────────────────────────
+    document.getElementById('btn-next-1').addEventListener('click', function () {
+      const v1 = validateField('first_name');
+      const v2 = validateField('last_name');
+      const v3 = validateField('email', validateEmail);
+      const v4 = validateField('phone');
+      const v5 = validateField('event_date');
+      const banner = document.getElementById('banner-step1');
+      const allOk = v1 && v2 && v3 && v4 && v5;
+      banner.classList.toggle('visible', !allOk);
+      if (!allOk) return;
+
+      // Pre-fill reply-to with user's email
+      document.getElementById('form-replyto').value = document.getElementById('email').value.trim();
+      setStep(2);
+    });
+
+    // ── Step 2 → Step 1 ──────────────────────────────────────
+    document.getElementById('btn-back-2').addEventListener('click', function () { setStep(1); });
+
+    // ── Form submit (Step 2 → Step 3) ────────────────────────
+    document.getElementById('enquire-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Validate at least one day and one time selected
+      const daysChecked = [...document.querySelectorAll('input[name="Preferred Days"]:checked')];
+      const timeChecked = [...document.querySelectorAll('input[name="Preferred Time"]:checked')];
+      const banner = document.getElementById('banner-step2');
+      if (daysChecked.length === 0 || timeChecked.length === 0) {
+        banner.classList.add('visible');
+        return;
+      }
+      banner.classList.remove('visible');
+
+      // Collect availability labels for display
+      const daysLabel = daysChecked.map(c => c.value).join(', ');
+      const timeLabel = timeChecked.map(c => c.value).join(', ');
+
+      // Loading state
+      const btn = document.getElementById('btn-submit');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      // Build form data
+      const formData = new FormData(this);
+
+      // Merge multi-checkbox values into single readable strings
+      formData.delete('Preferred Days');
+      formData.delete('Preferred Time');
+      formData.append('Preferred Days', daysLabel);
+      formData.append('Preferred Time', timeLabel);
+
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          // Populate confirmation screen
+          const eventDateRaw = document.getElementById('event_date').value;
+          const eventDateFmt = eventDateRaw
+            ? new Date(eventDateRaw + 'T00:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
+            : '—';
+
+          document.getElementById('conf-plan-name').textContent  = planName;
+          document.getElementById('conf-price').textContent      = planPrice ? '$' + Number(planPrice).toLocaleString() : 'Custom';
+          document.getElementById('conf-event-date').textContent = eventDateFmt;
+          document.getElementById('conf-availability').textContent = daysLabel + ' · ' + timeLabel;
+          document.getElementById('conf-email').textContent = document.getElementById('email').value.trim();
+
+          // Show enhancements row only if there are enhancements
+          if (planEnh) {
+            const enhDisplay = planEnh.split('|').map(e => {
+              const [name, price] = e.split(':');
+              return name + (price ? ' (+$' + price + ')' : '');
+            }).join(', ');
+            document.getElementById('conf-enhancements').textContent = enhDisplay;
+            document.getElementById('conf-row-enhancements').style.display = 'flex';
+          }
+
+          setStep(3);
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        const banner = document.getElementById('banner-step2');
+        banner.textContent = 'Something went wrong — please try again or contact us directly at luisca85@gmail.com';
+        banner.classList.add('visible');
+      }
+    });
+  </script>
+
+</body>
+</html>

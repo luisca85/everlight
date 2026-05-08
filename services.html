@@ -38,9 +38,13 @@
       <span class="page-hero-label">What We Offer</span>
       <h1 class="page-hero-title">Services &<br><em>Collections</em></h1>
       <div class="page-hero-rule"></div>
-      <p class="page-hero-sub">We offer photography experiences designed to capture your story with honesty, emotion, and intention.
-Each collection is thoughtfully designed to offer a seamless and elevated experience, while preserving what matters most—how your day truly felt.</p>
+      <p class="page-hero-sub">Photography experiences designed to capture your story with honesty, emotion, and intention — preserving how your day truly felt.</p>
     </div>
+    <!-- Parallax depth ornaments -->
+    <div class="plx-ornament plx-rect" id="plx-r1" style="top:20px;right:80px;width:100px;height:140px;"></div>
+    <div class="plx-ornament plx-rect-soft" id="plx-r2" style="bottom:20px;right:224px;width:158px;height:52px;"></div>
+    <div class="plx-ornament plx-cross" id="plx-c1" style="bottom:56px;right:112px;"></div>
+    <div class="plx-ornament plx-cross" id="plx-c2" style="top:44px;right:272px;"></div>
   </div>
 
   <!-- SERVICES DETAIL -->
@@ -117,7 +121,7 @@ Each collection is thoughtfully designed to offer a seamless and elevated experi
             <span class="toggle-track"></span>
           </label>
         </div>
-        <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
+        <button class="pkg-cta" onclick="enquireNow('svc-pkg-intimate', 'The Intimate Experience')">Enquire Now</button>
       </div>
 
       <!-- 02 · The Signature Experience (Most Requested) -->
@@ -160,7 +164,7 @@ Each collection is thoughtfully designed to offer a seamless and elevated experi
             <span class="toggle-track"></span>
           </label>
         </div>
-        <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
+        <button class="pkg-cta" onclick="enquireNow('svc-pkg-signature', 'The Signature Experience')">Enquire Now</button>
       </div>
 
       <!-- 03 · Bespoke Experience -->
@@ -177,7 +181,7 @@ Each collection is thoughtfully designed to offer a seamless and elevated experi
           <li><div class="pkg-dot"></div>Seamless, intentional &amp; elevated result</li>
         </ul>
         <p class="pkg-bespoke-note">Guided by our expertise, every detail is considered to create an experience that is truly yours.</p>
-        <button class="pkg-cta" onclick="window.location='contact.html'" style="margin-top:auto">Get in Touch</button>
+        <button class="pkg-cta" onclick="enquireNow(null, 'Bespoke Experience')" style="margin-top:auto">Get in Touch</button>
       </div>
 
     </div>
@@ -199,7 +203,7 @@ Each collection is thoughtfully designed to offer a seamless and elevated experi
       </div>
       <div class="pkg-row-zone pkg-row-zone-action">
         <div class="pkg-price">$350</div>
-        <button class="pkg-cta" onclick="window.location='contact.html'" style="width:160px">Book Session</button>
+        <button class="pkg-cta" onclick="enquireNow(null, 'Engagement Session', 350)" style="width:160px">Book Session</button>
       </div>
     </div>
 
@@ -356,6 +360,56 @@ Each collection is thoughtfully designed to offer a seamless and elevated experi
   <script>
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // ── Enquire Now — reads current card state and redirects with URL params ──
+    function enquireNow(cardId, planName, fixedPrice) {
+      let price = fixedPrice || null;
+      const enhancements = [];
+
+      if (cardId) {
+        const el = document.getElementById(cardId);
+        if (el) {
+          price = parseInt(el.dataset.base, 10);
+          el.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            if (cb.checked) {
+              price += parseInt(cb.dataset.price, 10);
+              const label = cb.closest('.pkg-toggle').querySelector('.toggle-name');
+              enhancements.push((label ? label.textContent.trim() : '') + ':' + cb.dataset.price);
+            }
+          });
+        }
+      }
+
+      const p = new URLSearchParams({ plan: planName });
+      if (price)              p.set('price', price);
+      if (enhancements.length) p.set('enhancements', enhancements.join('|'));
+      window.location.href = 'enquire.html?' + p.toString();
+    }
+
+    // Parallax hero depth ornaments
+    (function () {
+      const layers = [
+        { el: document.getElementById('plx-r1'), speed: 0.35 },
+        { el: document.getElementById('plx-r2'), speed: 0.58 },
+        { el: document.getElementById('plx-c1'), speed: 0.50 },
+        { el: document.getElementById('plx-c2'), speed: 0.28 },
+      ];
+      let ticking = false;
+      if (window.innerWidth > 768) {
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              const y = window.scrollY;
+              layers.forEach(function (l) {
+                if (l.el) l.el.style.transform = 'translateY(' + (y * l.speed) + 'px)';
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+    })();
 
     // Dynamic pricing for add-on toggles
     function updatePackagePrice(pkg) {

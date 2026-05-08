@@ -243,6 +243,12 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
+/* Hero photo side — positioned context for parallax ornaments */
+.hero-photo-side {
+  position: relative;
+  overflow: hidden;
+}
+
 /* Hero photo fill — img inside .hero-photo-side fills absolutely */
 .hero-photo-side > img {
   position: absolute;
@@ -1076,11 +1082,46 @@ ul { list-style: none; }
   text-align: right;
 }
 
+/* ── PARALLAX ORNAMENTS ── */
+.plx-ornament {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  z-index: 2;
+}
+/* Default: light background (page-hero) */
+.plx-rect {
+  border: 1px solid rgba(184, 152, 128, 0.55);
+}
+.plx-rect-soft {
+  border: 1px solid rgba(184, 152, 128, 0.28);
+}
+.plx-cross {
+  width: 1px;
+  height: 1px;
+}
+.plx-cross::before,
+.plx-cross::after {
+  content: '';
+  position: absolute;
+  background: rgba(184, 152, 128, 0.5);
+}
+.plx-cross::before { width: 1px; height: 32px; left: 0; top: -16px; }
+.plx-cross::after  { width: 32px; height: 1px; top: 0; left: -16px; }
+
+/* Photo-side variant: white on dark image */
+.plx-ornament--photo.plx-rect     { border-color: rgba(255, 255, 255, 0.55); }
+.plx-ornament--photo.plx-rect-soft{ border-color: rgba(255, 255, 255, 0.25); }
+.plx-ornament--photo.plx-cross::before,
+.plx-ornament--photo.plx-cross::after { background: rgba(255, 255, 255, 0.5); }
+
 /* ── PAGE HERO (sub-pages) ── */
 .page-hero {
   background: var(--linen);
   padding: 88px 80px 72px;
   border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
 }
 .page-hero-label {
   font-size: 8px;
@@ -1240,6 +1281,7 @@ ul { list-style: none; }
   .footer-nav-right { align-items: flex-start; flex-direction: row; gap: 20px; align-items: center; }
 }
 @media (max-width: 768px) {
+  .plx-ornament { display: none; }
   .container { padding: 0 24px; }
   .navbar { padding: 0 24px; }
   .nav-links { display: none; }

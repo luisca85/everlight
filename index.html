@@ -65,6 +65,11 @@
     <!-- Right: photo -->
     <div class="hero-photo-side">
       <img src="images/hero-wedding.png" alt="Everlight — Wedding Photography">
+      <!-- Parallax depth ornaments -->
+      <div class="plx-ornament plx-ornament--photo plx-rect" id="plx-r1" style="top:28px;right:32px;width:88px;height:116px;"></div>
+      <div class="plx-ornament plx-ornament--photo plx-rect-soft" id="plx-r2" style="bottom:40px;right:64px;width:154px;height:54px;"></div>
+      <div class="plx-ornament plx-ornament--photo plx-cross" id="plx-c1" style="top:148px;right:44px;"></div>
+      <div class="plx-ornament plx-ornament--photo plx-cross" id="plx-c2" style="top:72px;left:48px;"></div>
       <!-- Vertical label overlay -->
       <div class="hero-aside">
         <div class="hero-aside-line"></div>
@@ -211,7 +216,7 @@
             <span class="toggle-track"></span>
           </label>
         </div>
-        <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
+        <button class="pkg-cta" onclick="enquireNow('home-pkg-intimate', 'The Intimate Experience')">Enquire Now</button>
       </div>
 
       <!-- 02 · The Signature Experience (Most Requested) -->
@@ -254,7 +259,7 @@
             <span class="toggle-track"></span>
           </label>
         </div>
-        <button class="pkg-cta" onclick="window.location='contact.html'">Enquire Now</button>
+        <button class="pkg-cta" onclick="enquireNow('home-pkg-signature', 'The Signature Experience')">Enquire Now</button>
       </div>
 
       <!-- 03 · Bespoke Experience -->
@@ -271,7 +276,7 @@
           <li><div class="pkg-dot"></div>Seamless, intentional &amp; elevated result</li>
         </ul>
         <p class="pkg-bespoke-note">Guided by our expertise, every detail is considered to create an experience that is truly yours.</p>
-        <button class="pkg-cta" onclick="window.location='contact.html'" style="margin-top:auto">Get in Touch</button>
+        <button class="pkg-cta" onclick="enquireNow(null, 'Bespoke Experience')" style="margin-top:auto">Get in Touch</button>
       </div>
 
     </div>
@@ -293,7 +298,7 @@
       </div>
       <div class="pkg-row-zone pkg-row-zone-action">
         <div class="pkg-price">$350</div>
-        <button class="pkg-cta" onclick="window.location='contact.html'" style="width:160px">Book Session</button>
+        <button class="pkg-cta" onclick="enquireNow(null, 'Engagement Session', 350)" style="width:160px">Book Session</button>
       </div>
     </div>
 
@@ -385,6 +390,31 @@
   </footer>
 
   <script>
+    // ── Enquire Now — reads current card state and redirects with URL params ──
+    function enquireNow(cardId, planName, fixedPrice) {
+      let price = fixedPrice || null;
+      const enhancements = [];
+
+      if (cardId) {
+        const el = document.getElementById(cardId);
+        if (el) {
+          price = parseInt(el.dataset.base, 10);
+          el.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            if (cb.checked) {
+              price += parseInt(cb.dataset.price, 10);
+              const label = cb.closest('.pkg-toggle').querySelector('.toggle-name');
+              enhancements.push((label ? label.textContent.trim() : '') + ':' + cb.dataset.price);
+            }
+          });
+        }
+      }
+
+      const p = new URLSearchParams({ plan: planName });
+      if (price)               p.set('price', price);
+      if (enhancements.length) p.set('enhancements', enhancements.join('|'));
+      window.location.href = 'enquire.html?' + p.toString();
+    }
+
     // Dynamic pricing for add-on toggles
     function updatePackagePrice(pkg) {
       const card  = document.getElementById('home-pkg-' + pkg.replace('home-', ''));
@@ -406,6 +436,31 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 20);
     });
+
+    // Parallax hero depth ornaments
+    (function () {
+      const layers = [
+        { el: document.getElementById('plx-r1'), speed: 0.40 },
+        { el: document.getElementById('plx-r2'), speed: 0.62 },
+        { el: document.getElementById('plx-c1'), speed: 0.55 },
+        { el: document.getElementById('plx-c2'), speed: 0.32 },
+      ];
+      let ticking = false;
+      if (window.innerWidth > 768) {
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              const y = window.scrollY;
+              layers.forEach(function (l) {
+                if (l.el) l.el.style.transform = 'translateY(' + (y * l.speed) + 'px)';
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+    })();
   </script>
 
 </body>

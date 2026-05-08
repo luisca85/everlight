@@ -38,9 +38,13 @@
       <span class="page-hero-label">Our Story</span>
       <h1 class="page-hero-title">Born from a love<br>of <em>real moments.</em></h1>
       <div class="page-hero-rule"></div>
-      <p class="page-hero-sub">When you book with Everlight, a professional photographer will be there on your wedding day—aligned with our vision, and committed to being punctual, reliable, and fully present, so you can feel at ease.
-Our goal is simple—to create images that truly reflect each couple’s style and personality. We work with a natural approach, allowing moments to happen organically, while also guiding you when needed to ensure the best possible result.</p>
+      <p class="page-hero-sub">We work with a natural approach, allowing moments to happen organically, while guiding you when needed — so you can feel fully at ease on your most important day.</p>
     </div>
+    <!-- Parallax depth ornaments -->
+    <div class="plx-ornament plx-rect" id="plx-r1" style="top:20px;right:80px;width:100px;height:140px;"></div>
+    <div class="plx-ornament plx-rect-soft" id="plx-r2" style="bottom:20px;right:224px;width:158px;height:52px;"></div>
+    <div class="plx-ornament plx-cross" id="plx-c1" style="bottom:56px;right:112px;"></div>
+    <div class="plx-ornament plx-cross" id="plx-c2" style="top:44px;right:272px;"></div>
   </div>
 
   <!-- ABOUT — FOUNDER -->
@@ -229,6 +233,31 @@ Everlight was created with a clear purpose: to bring together talented photograp
   <script>
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // Parallax hero depth ornaments
+    (function () {
+      const layers = [
+        { el: document.getElementById('plx-r1'), speed: 0.35 },
+        { el: document.getElementById('plx-r2'), speed: 0.58 },
+        { el: document.getElementById('plx-c1'), speed: 0.50 },
+        { el: document.getElementById('plx-c2'), speed: 0.28 },
+      ];
+      let ticking = false;
+      if (window.innerWidth > 768) {
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              const y = window.scrollY;
+              layers.forEach(function (l) {
+                if (l.el) l.el.style.transform = 'translateY(' + (y * l.speed) + 'px)';
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
