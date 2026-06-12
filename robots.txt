@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /enquire.html
+
+Sitemap: https://everlightphotoagency.com/sitemap.xml

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Photography Portfolio — Everlight Photo Agency Melbourne</title>
+  <meta name="description" content="Browse Everlight's wedding and engagement portfolio. Timeless, natural photography across Melbourne, Sydney, Byron Bay and Yarra Valley. See our work.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://everlightphotoagency.com/portfolio.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://everlightphotoagency.com/portfolio.html">
+  <meta property="og:title"       content="Wedding Photography Portfolio — Everlight Photo Agency Melbourne">
+  <meta property="og:description" content="Timeless, natural wedding and engagement photography across Melbourne, Sydney, Byron Bay and Yarra Valley. Browse the Everlight portfolio.">
+  <meta property="og:image"       content="https://everlightphotoagency.com/images/gallery-01.png">
+  <meta property="og:locale"      content="en_AU">
+  <meta property="og:site_name"   content="Everlight Photo Agency">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Wedding Photography Portfolio — Everlight Photo Agency Melbourne">
+  <meta name="twitter:description" content="Timeless, natural wedding photography across Melbourne, Sydney, Byron Bay and Yarra Valley.">
+  <meta name="twitter:image"       content="https://everlightphotoagency.com/images/gallery-01.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon"  href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180"    href="images/apple-touch-icon.png">
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",      "item": "https://everlightphotoagency.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://everlightphotoagency.com/portfolio.html" }
+    ]
+  }
+  </script>
+
+  <!-- Schema: ImageGallery -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Everlight Wedding Photography Portfolio — Melbourne, Australia",
+    "description": "A curated collection of wedding and engagement photography across Melbourne, Sydney, Byron Bay and Yarra Valley by Everlight Photo Agency.",
+    "url": "https://everlightphotoagency.com/portfolio.html",
+    "author": {
+      "@type": "Organization",
+      "name": "Everlight Photo Agency",
+      "url": "https://everlightphotoagency.com/"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Justified-row portfolio grid ───────────────────────────── */
+    .pf-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .pf-row {
+      display: flex;
+      gap: 4px;
+      overflow: hidden;
+    }
+    .pf-cell {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
+      background: var(--warm-cream);
+    }
+    .pf-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .pf-cell:hover img { transform: scale(1.03); }
+    .pf-cell-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30,25,22,0);
+      transition: background 0.35s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pf-cell:hover .pf-cell-overlay { background: rgba(30,25,22,0.18); }
+    .pf-cell-zoom {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      color: var(--white-linen);
+    }
+    .pf-cell:hover .pf-cell-zoom { opacity: 1; }
+    .pf-cell-zoom svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Lightbox */
+    .pf-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(20,17,15,0.96);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .pf-lightbox.open { display: flex; }
+    .pf-lightbox-img-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 0;
+    }
+    .pf-lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .pf-lightbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 960px;
+      padding: 16px 0 4px;
+      flex-shrink: 0;
+    }
+    .pf-lb-nav {
+      display: flex;
+      gap: 8px;
+    }
+    .pf-lb-btn {
+      background: none;
+      border: 1px solid rgba(184,152,128,0.35);
+      color: rgba(212,185,150,0.85);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: var(--font-body);
+    }
+    .pf-lb-btn:hover { border-color: var(--taupe); color: var(--champagne); }
+    .pf-lb-btn:disabled { opacity: 0.25; cursor: default; }
+    .pf-lb-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .pf-lb-counter {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(184,152,128,0.6);
+      font-weight: 300;
+    }
+    .pf-lb-close {
+      background: none;
+      border: 1px solid rgba(184,152,128,0.35);
+      color: rgba(212,185,150,0.85);
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 15px;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: var(--font-body);
+    }
+    .pf-lb-close:hover { border-color: var(--champagne); color: var(--champagne); }
+
+    /* ── Tablet (lg) ────────────────────────────────────────────── */
+    @media (max-width: 991.98px) {
+      .pf-section { padding: 56px 32px 72px !important; }
+      .pf-row[style*="height:460px"] { height: 340px !important; }
+      .pf-row[style*="height:420px"] { height: 320px !important; }
+      .pf-row[style*="height:380px"] { height: 280px !important; }
+      .pf-row[style*="height:340px"] { height: 240px !important; }
+    }
+
+    /* ── Mobile: apilado vertical 100% ─────────────────────────── */
+    @media (max-width: 767.98px) {
+      .pf-section { padding: 40px 16px 56px !important; }
+      .pf-row {
+        flex-direction: column;
+        height: auto !important;
+        gap: 3px;
+      }
+      .pf-cell {
+        width: 100% !important;
+        height: auto !important;
+        flex: none !important;
+      }
+      /* Restore natural aspect ratio for each cell on mobile */
+      .pf-cell[data-index="0"] { aspect-ratio: 2/3; }
+      .pf-cell[data-index="1"] { aspect-ratio: 3/2; }
+      .pf-cell[data-index="2"] { aspect-ratio: 3/2; }
+      .pf-cell[data-index="3"] { aspect-ratio: 4/3; }
+      .pf-cell[data-index="4"] { aspect-ratio: 3/2; }
+      .pf-cell[data-index="5"] { aspect-ratio: 3/2; }
+      .pf-cell[data-index="6"] { aspect-ratio: 4/3; }
+      .pf-cell[data-index="7"] { aspect-ratio: 3/2; }
+      .pf-cell[data-index="8"] { aspect-ratio: 1/1; }
+      .pf-cell[data-index="9"] { aspect-ratio: 3/2; }
+      .pf-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6B0KJ8SQY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6B0KJ8SQY6');
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="services.html"  class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link active">Portfolio</a>
+      <a href="blog.html"      class="nav-link">Blog</a>
+      <a href="contact.html"   class="nav-link">Contact</a>
+      <a href="services.html#common-questions" class="nav-link nav-link-faq">FAQ</a>
+      <div class="nav-social-divider"></div>
+      <a href="https://www.instagram.com/andrearlphotography" class="nav-ig-link" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">Our Work</span>
+      <h1 class="page-hero-title">A curated look<br>at <em>love stories.</em></h1>
+      <div class="page-hero-rule"></div>
+      <p class="page-hero-sub">Each gallery is a world of its own — different couples, different venues, different moments. What they share is the same authentic, timeless quality we bring to every wedding.</p>
+    </div>
+    <!-- Parallax depth ornaments -->
+    <div class="plx-ornament plx-rect" id="plx-r1" style="top:20px;right:80px;width:100px;height:140px;"></div>
+    <div class="plx-ornament plx-rect-soft" id="plx-r2" style="bottom:20px;right:224px;width:158px;height:52px;"></div>
+    <div class="plx-ornament plx-cross" id="plx-c1" style="bottom:56px;right:112px;"></div>
+    <div class="plx-ornament plx-cross" id="plx-c2" style="top:44px;right:272px;"></div>
+  </div>
+
+  <!-- PORTFOLIO GRID -->
+  <section class="pf-section" style="background:var(--warm-cream);padding:72px 60px 88px;">
+
+    <div class="pf-grid">
+
+      <!-- Row 1 (h=380px): portrait 2:3 · landscape 3:2 · landscape 3:2 -->
+      <div class="pf-row" style="height:380px">
+        <div class="pf-cell" style="flex:0.667" data-index="0" onclick="pfOpen(0)">
+          <img src="images/_RAF5745.jpg" alt="Bride portrait — Melbourne wedding photography by Everlight" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+        <div class="pf-cell" style="flex:1.5" data-index="1" onclick="pfOpen(1)">
+          <img src="images/_RAF5418.jpg" alt="Wedding ceremony photography Melbourne — natural and timeless" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+        <div class="pf-cell" style="flex:1.5" data-index="2" onclick="pfOpen(2)">
+          <img src="images/_RAF5463.jpg" alt="Candid wedding moment captured by Everlight Photo Agency" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+      </div>
+
+      <!-- Row 2 (h=340px): landscape 4:3 · landscape 3:2 · landscape 3:2 -->
+      <div class="pf-row" style="height:340px">
+        <div class="pf-cell" style="flex:1.333" data-index="3" onclick="pfOpen(3)">
+          <img src="images/_RAF5533-Edit.jpg" alt="Wedding detail photography — flowers and styling, Melbourne" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+        <div class="pf-cell" style="flex:1.5" data-index="4" onclick="pfOpen(4)">
+          <img src="images/_RAF5553.jpg" alt="Couple portrait wedding photography — Everlight, Melbourne" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+        <div class="pf-cell" style="flex:1.5" data-index="5" onclick="pfOpen(5)">
+          <img src="images/_RAF5653.jpg" alt="Wedding reception photography Melbourne — documentary style" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+      </div>
+
+      <!-- Row 3 (h=460px): landscape 4:3 · landscape 3:2 -->
+      <div class="pf-row" style="height:460px">
+        <div class="pf-cell" style="flex:1.333" data-index="6" onclick="pfOpen(6)">
+          <img src="images/_RAF5826-Edit.jpg" alt="Wedding scene — natural light photography by Everlight" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+        <div class="pf-cell" style="flex:1.5" data-index="7" onclick="pfOpen(7)">
+          <img src="images/_RAF5883-Edit.jpg" alt="Timeless wedding photography Melbourne — Everlight Photo Agency" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+      </div>
+
+      <!-- Row 4 (h=420px): square 1:1 · landscape 3:2 -->
+      <div class="pf-row" style="height:420px">
+        <div class="pf-cell" style="flex:1" data-index="8" onclick="pfOpen(8)">
+          <img src="images/_RAF5943-Edit.jpg" alt="Emotional wedding moment — authentic storytelling photography" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+        <div class="pf-cell" style="flex:1.5" data-index="9" onclick="pfOpen(9)">
+          <img src="images/_RAF5990-Edit.jpg" alt="Wedding story photography — Everlight Photo Agency Melbourne" loading="lazy">
+          <div class="pf-cell-overlay"><div class="pf-cell-zoom"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-cta-band">
+      <span class="footer-cta-label">Let's Make It Official</span>
+      <h2 class="footer-cta-title">Ready to book your<br><em>wedding date?</em></h2>
+      <p class="footer-cta-sub">Dates fill quickly. Reach out today to check availability for your day.</p>
+      <div class="footer-cta-btns">
+        <a href="contact.html" class="btn-primary-dark">Start a Conversation</a>
+        <a href="portfolio.html" class="btn-outline-dark">View Our Portfolio</a>
+      </div>
+    </div>
+    <div class="footer-nav-band">
+      <div class="footer-nav-inner">
+        <div class="footer-nav-brand">
+          <a href="index.html"><img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo"></a>
+        </div>
+        <nav class="footer-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-nav-right">
+          <a href="https://www.instagram.com/andrearlphotography" class="footer-ig-icon" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <p class="footer-nav-copy">© 2026 Everlight Photo Agency · Melbourne, Australia</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="pf-lightbox" id="portfolio-lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <div class="pf-lightbox-img-wrap">
+      <img id="pf-lb-img" src="" alt="">
+    </div>
+    <div class="pf-lightbox-bar" style="max-width:960px;margin:0 auto;">
+      <div class="pf-lb-nav">
+        <button class="pf-lb-btn" id="pf-lb-prev" onclick="pfPrev()" aria-label="Previous photo">
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="pf-lb-btn" id="pf-lb-next" onclick="pfNext()" aria-label="Next photo">
+          <svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg>
+        </button>
+      </div>
+      <span class="pf-lb-counter" id="pf-lb-counter">1 / 10</span>
+      <button class="pf-lb-close" onclick="pfClose()" aria-label="Close lightbox">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <div class="overlay-header">
+      <a href="index.html" class="logo-wrap">
+        <img src="images/logo-light.png" alt="Everlight Photo Agency" class="overlay-logo-img">
+      </a>
+      <button class="overlay-close" id="overlay-close" aria-label="Close menu">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(212,196,176,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="overlay-nav-links">
+      <a href="index.html"     class="overlay-nav-link">Home</a>
+      <a href="about.html"     class="overlay-nav-link">About</a>
+      <a href="services.html"  class="overlay-nav-link">Services</a>
+      <a href="portfolio.html" class="overlay-nav-link">Portfolio</a>
+      <a href="blog.html"      class="overlay-nav-link">Blog</a>
+      <a href="contact.html"   class="overlay-nav-link">Contact</a>
+      <a href="services.html#common-questions" class="overlay-nav-link overlay-nav-link-faq">FAQ</a>
+    </nav>
+    <div class="overlay-footer">
+      <a href="https://www.instagram.com/andrearlphotography" class="overlay-ig" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @andrearlphotography
+      </a>
+      <a href="contact.html" class="overlay-book-btn">Book Now</a>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // Parallax hero depth ornaments
+    (function () {
+      const layers = [
+        { el: document.getElementById('plx-r1'), speed: 0.35 },
+        { el: document.getElementById('plx-r2'), speed: 0.58 },
+        { el: document.getElementById('plx-c1'), speed: 0.50 },
+        { el: document.getElementById('plx-c2'), speed: 0.28 },
+      ];
+      let ticking = false;
+      if (window.innerWidth > 768) {
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              const y = window.scrollY;
+              layers.forEach(function (l) {
+                if (l.el) l.el.style.transform = 'translateY(' + (y * l.speed) + 'px)';
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+    })();
+
+    // Lightbox
+    const pfPhotos = [
+      { src: 'images/_RAF5745.jpg',      alt: 'Wedding portrait' },
+      { src: 'images/_RAF5418.jpg',      alt: 'Wedding ceremony' },
+      { src: 'images/_RAF5463.jpg',      alt: 'Wedding moment' },
+      { src: 'images/_RAF5533-Edit.jpg', alt: 'Wedding detail' },
+      { src: 'images/_RAF5553.jpg',      alt: 'Wedding couple' },
+      { src: 'images/_RAF5653.jpg',      alt: 'Wedding reception' },
+      { src: 'images/_RAF5826-Edit.jpg', alt: 'Wedding scene' },
+      { src: 'images/_RAF5883-Edit.jpg', alt: 'Wedding photography' },
+      { src: 'images/_RAF5943-Edit.jpg', alt: 'Wedding moment' },
+      { src: 'images/_RAF5990-Edit.jpg', alt: 'Wedding story' },
+    ];
+
+    let pfCurrent = 0;
+
+    function pfShowPhoto(idx) {
+      pfCurrent = (idx + pfPhotos.length) % pfPhotos.length;
+      const img = document.getElementById('pf-lb-img');
+      img.src = pfPhotos[pfCurrent].src;
+      img.alt = pfPhotos[pfCurrent].alt;
+      document.getElementById('pf-lb-counter').textContent = (pfCurrent + 1) + ' / ' + pfPhotos.length;
+      document.getElementById('pf-lb-prev').disabled = false;
+      document.getElementById('pf-lb-next').disabled = false;
+    }
+
+    function pfOpen(idx) {
+      pfShowPhoto(idx);
+      const lb = document.getElementById('portfolio-lightbox');
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function pfClose() {
+      document.getElementById('portfolio-lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function pfPrev() { pfShowPhoto(pfCurrent - 1); }
+    function pfNext() { pfShowPhoto(pfCurrent + 1); }
+
+    // Close on overlay click (not on image/bar)
+    document.getElementById('portfolio-lightbox').addEventListener('click', function(e) {
+      if (e.target === this) pfClose();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+      const lb = document.getElementById('portfolio-lightbox');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape')      pfClose();
+      if (e.key === 'ArrowLeft')   pfPrev();
+      if (e.key === 'ArrowRight')  pfNext();
+    });
+  
+    // Mobile nav overlay
+    const navHamburger = document.getElementById('nav-hamburger');
+    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+    const overlayClose = document.getElementById('overlay-close');
+    if (navHamburger && mobileNavOverlay) {
+      navHamburger.addEventListener('click', () => {
+        mobileNavOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      overlayClose.addEventListener('click', () => {
+        mobileNavOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+      mobileNavOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavOverlay.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

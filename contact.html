@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Book Your Wedding Photographer | Everlight Photo Agency Melbourne</title>
+  <meta name="description" content="Book your Melbourne wedding photographer with Everlight Photo Agency. Check availability and get in touch to start planning your day with us.">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://everlightphotoagency.com/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://everlightphotoagency.com/contact.html">
+  <meta property="og:title"       content="Contact — Book Your Wedding Photographer | Everlight Melbourne">
+  <meta property="og:description" content="Book your Melbourne wedding photographer with Everlight Photo Agency. Check availability and start planning your day.">
+  <meta property="og:image"       content="https://everlightphotoagency.com/images/hero-wedding.jpg">
+  <meta property="og:locale"      content="en_AU">
+  <meta property="og:site_name"   content="Everlight Photo Agency">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Contact Everlight Photo Agency — Book Your Wedding Photographer">
+  <meta name="twitter:description" content="Check availability and book your Melbourne wedding photographer with Everlight Photo Agency.">
+  <meta name="twitter:image"       content="https://everlightphotoagency.com/images/hero-wedding.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon"  href="images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180"    href="images/apple-touch-icon.png">
+
+  <!-- Schema: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home",    "item": "https://everlightphotoagency.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://everlightphotoagency.com/contact.html" }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Contact-page extras ────────────────────────────────────── */
+
+    /* Preferred contact chips */
+    .cf-chips {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .cf-chip {
+      position: relative;
+      cursor: pointer;
+      display: block;
+    }
+    .cf-chip input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+    .cf-chip span {
+      display: block;
+      text-align: center;
+      padding: 12px 8px;
+      border: 1px solid var(--border);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 400;
+      background: var(--warm-cream);
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      user-select: none;
+      font-family: var(--font-body);
+    }
+    .cf-chip input:checked + span {
+      background: var(--dark);
+      color: var(--champagne);
+      border-color: var(--dark);
+    }
+    .cf-chip:hover span { border-color: var(--taupe); }
+
+    /* Error banner */
+    .cf-error-banner {
+      background: #fdf2f2;
+      border: 1px solid #f0c0c0;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #8b3a3a;
+      font-weight: 300;
+      margin-bottom: 20px;
+      display: none;
+    }
+    .cf-error-banner.visible { display: block; }
+
+    /* Field error */
+    .cf-field-error {
+      font-size: 11px;
+      color: #b94a4a;
+      font-weight: 300;
+      margin-top: 4px;
+      display: none;
+    }
+    .cf-field-error.visible { display: block; }
+    input.error, select.error, textarea.error { border-color: #b94a4a !important; }
+
+    /* Loading state */
+    .form-submit .btn-spinner { display: none; }
+    .form-submit.loading .btn-text { display: none; }
+    .form-submit.loading .btn-spinner { display: inline; }
+
+    /* Confirmation screen */
+    .cf-confirmation {
+      display: none;
+      text-align: center;
+    }
+    .cf-confirmation.visible { display: block; }
+    .cf-confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(184,152,128,0.15);
+      border: 1px solid rgba(184,152,128,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    .cf-confirm-icon svg {
+      width: 24px; height: 24px;
+      stroke: var(--taupe); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .cf-confirm-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .cf-confirm-sub {
+      font-size: 14px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .cf-confirm-summary {
+      border: 1px solid var(--border);
+      margin-bottom: 28px;
+      text-align: left;
+    }
+    .cf-confirm-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 13px 24px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      gap: 16px;
+    }
+    .cf-confirm-row:last-child { border-bottom: none; }
+    .cf-confirm-row-label { color: var(--mid); font-weight: 300; flex-shrink: 0; min-width: 120px; }
+    .cf-confirm-row-value { color: var(--dark); font-weight: 400; text-align: right; }
+    .cf-confirm-contact {
+      background: var(--warm-cream);
+      border: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .cf-confirm-contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(184,152,128,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cf-confirm-contact-icon svg { width: 16px; height: 16px; stroke: var(--taupe); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .cf-confirm-contact-text strong { display: block; font-size: 13px; font-weight: 400; color: var(--dark); margin-bottom: 4px; }
+    .cf-confirm-contact-text p { font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.7; }
+    .cf-confirm-contact-text a { color: var(--taupe); text-decoration: underline; text-underline-offset: 3px; }
+    .cf-confirm-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Mobile */
+    @media (max-width: 767.98px) {
+      .cf-chips { grid-template-columns: repeat(2, 1fr); }
+      .cf-confirm-actions { flex-direction: column; align-items: stretch; }
+      .cf-confirm-actions .btn-primary,
+      .cf-confirm-actions .btn-outline { text-align: center; padding: 14px 16px; }
+    }
+    @media (max-width: 575.98px) {
+      .cf-chips { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6B0KJ8SQY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6B0KJ8SQY6');
+  </script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="logo-wrap">
+      <img src="images/logo-light.png" alt="Everlight Photo Agency" class="navbar-logo">
+    </a>
+    <div class="nav-links">
+      <a href="index.html"     class="nav-link">Home</a>
+      <a href="about.html"     class="nav-link">About</a>
+      <a href="services.html"  class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="blog.html"      class="nav-link">Blog</a>
+      <a href="contact.html"   class="nav-link active">Contact</a>
+      <a href="services.html#common-questions" class="nav-link nav-link-faq">FAQ</a>
+      <div class="nav-social-divider"></div>
+      <a href="https://www.instagram.com/andrearlphotography" class="nav-ig-link" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="page-hero-label">Say Hello</span>
+      <h1 class="page-hero-title">Let's start a<br><em>conversation.</em></h1>
+      <div class="page-hero-rule"></div>
+      <p class="page-hero-sub">Whether you have a question, want to learn more about our work, or are ready to take the first step — we'd love to hear from you.</p>
+    </div>
+    <div class="plx-ornament plx-rect"      id="plx-r1" style="top:20px;right:80px;width:100px;height:140px;"></div>
+    <div class="plx-ornament plx-rect-soft" id="plx-r2" style="bottom:20px;right:224px;width:158px;height:52px;"></div>
+    <div class="plx-ornament plx-cross"     id="plx-c1" style="bottom:56px;right:112px;"></div>
+    <div class="plx-ornament plx-cross"     id="plx-c2" style="top:44px;right:272px;"></div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-grid" style="max-width:1100px;margin:0 auto;">
+
+      <!-- ── Info panel ─────────────────────────────────────── -->
+      <div>
+        <span class="contact-info-label">Get In Touch</span>
+        <h2 class="contact-info-title">We'd love to hear<br>your story.</h2>
+        <p class="contact-info-text">Every conversation starts with a simple message. Fill in the form and we'll get back to you within 24 hours — no pressure, just a genuine chat about how we can help.</p>
+
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Email</span>
+          <p class="contact-detail-value"><a href="mailto:info@everlightphotoagency.com" style="color:var(--taupe);">info@everlightphotoagency.com</a></p>
+        </div>
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Phone</span>
+          <p class="contact-detail-value">+61 410 656 899</p>
+        </div>
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Based In</span>
+          <p class="contact-detail-value">Melbourne, Australia</p>
+        </div>
+        <div class="contact-detail-divider"></div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Response Time</span>
+          <p class="contact-detail-value">Within 24 hours</p>
+        </div>
+      </div>
+
+      <!-- ── Form panel ─────────────────────────────────────── -->
+      <div>
+
+        <!-- FORM -->
+        <form id="contact-form" novalidate>
+
+          <!-- Web3Forms hidden fields -->
+          <input type="hidden" name="access_key"  value="91a5ce14-0beb-420e-9de0-4b8cb1b054e0">
+          <input type="hidden" name="from_name"   value="Everlight — New Message">
+          <input type="hidden" name="subject"     id="cf-subject">
+          <input type="hidden" name="replyto"     id="cf-replyto">
+          <!-- Spam honeypot -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div id="cf-error-banner" class="cf-error-banner">Please fill in all required fields before sending.</div>
+
+          <!-- Row 1: Name -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cf-first">First Name <span style="color:var(--taupe)">*</span></label>
+              <input class="form-input" type="text" id="cf-first" name="First Name" placeholder="Your first name" required autocomplete="given-name">
+              <span class="cf-field-error" id="err-cf-first">Required</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-last">Last Name <span style="color:var(--taupe)">*</span></label>
+              <input class="form-input" type="text" id="cf-last" name="Last Name" placeholder="Your last name" required autocomplete="family-name">
+              <span class="cf-field-error" id="err-cf-last">Required</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Email + Phone -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="cf-email">Email Address <span style="color:var(--taupe)">*</span></label>
+              <input class="form-input" type="email" id="cf-email" name="Email" placeholder="you@example.com" required autocomplete="email">
+              <span class="cf-field-error" id="err-cf-email">Please enter a valid email address</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-phone">Phone Number</label>
+              <input class="form-input" type="tel" id="cf-phone" name="Phone" placeholder="+61 4XX XXX XXX" autocomplete="tel">
+            </div>
+          </div>
+
+          <!-- Preferred Contact Method -->
+          <div class="form-group">
+            <label class="form-label">Preferred Contact Method <span style="color:var(--taupe)">*</span></label>
+            <div class="cf-chips">
+              <label class="cf-chip">
+                <input type="radio" name="Preferred Contact" value="Email">
+                <span>✉️&nbsp; Email</span>
+              </label>
+              <label class="cf-chip">
+                <input type="radio" name="Preferred Contact" value="Phone Call">
+                <span>📞&nbsp; Phone</span>
+              </label>
+              <label class="cf-chip">
+                <input type="radio" name="Preferred Contact" value="WhatsApp">
+                <span>🟢&nbsp; WhatsApp</span>
+              </label>
+              <label class="cf-chip">
+                <input type="radio" name="Preferred Contact" value="SMS">
+                <span>💬&nbsp; SMS</span>
+              </label>
+            </div>
+            <span class="cf-field-error" id="err-cf-contact">Please select a preferred contact method</span>
+          </div>
+
+          <!-- Subject -->
+          <div class="form-group">
+            <label class="form-label" for="cf-subject-text">Subject <span style="color:var(--taupe)">*</span></label>
+            <input class="form-input" type="text" id="cf-subject-text" name="Subject" placeholder="How can we help you?" required>
+            <span class="cf-field-error" id="err-cf-subject-text">Required</span>
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label class="form-label" for="cf-message">Message <span style="color:var(--taupe)">*</span></label>
+            <textarea class="form-textarea" id="cf-message" name="Message" placeholder="Tell us what's on your mind — any question or idea is welcome…" required></textarea>
+            <span class="cf-field-error" id="err-cf-message">Please write a message</span>
+          </div>
+
+          <!-- How Did You Hear About Us -->
+          <div class="form-group">
+            <label class="form-label" for="cf-hear">How Did You Hear About Us?</label>
+            <select class="form-select" id="cf-hear" name="How Did You Hear About Us">
+              <option value="" disabled selected>Select an option</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Google Search">Google Search</option>
+              <option value="Friend / Family Referral">Friend / Family Referral</option>
+              <option value="Wedding Vendor">Wedding Vendor</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <button type="submit" class="form-submit" id="cf-submit">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-spinner">Sending…</span>
+          </button>
+          <p class="form-note">We respond within 24 hours · All messages are confidential</p>
+
+        </form>
+
+        <!-- ── Confirmation (shown after submit) ─────────────── -->
+        <div id="cf-confirmation" class="cf-confirmation">
+
+          <div class="cf-confirm-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h2 class="cf-confirm-title">Message sent — thank you!</h2>
+          <p class="cf-confirm-sub">
+            We've received your message and we'll get back to you within<br>
+            <strong style="color:var(--dark);font-weight:400;">24 hours.</strong>
+          </p>
+
+          <div class="cf-confirm-summary">
+            <div class="cf-confirm-row">
+              <span class="cf-confirm-row-label">Name</span>
+              <span class="cf-confirm-row-value" id="conf-name">—</span>
+            </div>
+            <div class="cf-confirm-row">
+              <span class="cf-confirm-row-label">Email</span>
+              <span class="cf-confirm-row-value" id="conf-email">—</span>
+            </div>
+            <div class="cf-confirm-row">
+              <span class="cf-confirm-row-label">Subject</span>
+              <span class="cf-confirm-row-value" id="conf-subject">—</span>
+            </div>
+            <div class="cf-confirm-row">
+              <span class="cf-confirm-row-label">Preferred Contact</span>
+              <span class="cf-confirm-row-value" id="conf-contact">—</span>
+            </div>
+          </div>
+
+          <div class="cf-confirm-contact">
+            <div class="cf-confirm-contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.08 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>
+            </div>
+            <div class="cf-confirm-contact-text">
+              <strong>Need a faster response?</strong>
+              <p>
+                Reach us directly at
+                <a href="mailto:info@everlightphotoagency.com">info@everlightphotoagency.com</a>
+                or on Instagram
+                <a href="https://www.instagram.com/andrearlphotography" target="_blank">@andrearlphotography</a>.
+              </p>
+            </div>
+          </div>
+
+          <div class="cf-confirm-actions">
+            <a href="index.html"      class="btn-outline"  style="font-size:11px;padding:12px 28px;">Back to Home</a>
+            <a href="portfolio.html"  class="btn-primary"  style="font-size:11px;padding:12px 28px;">View Our Portfolio →</a>
+          </div>
+
+        </div><!-- /cf-confirmation -->
+
+      </div><!-- /form panel -->
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-cta-band">
+      <span class="footer-cta-label">Let's Make It Official</span>
+      <h2 class="footer-cta-title">Ready to book your<br><em>wedding date?</em></h2>
+      <p class="footer-cta-sub">Dates fill quickly. Reach out today to check availability for your day.</p>
+      <div class="footer-cta-btns">
+        <a href="contact.html" class="btn-primary-dark">Start a Conversation</a>
+        <a href="portfolio.html" class="btn-outline-dark">View Our Portfolio</a>
+      </div>
+    </div>
+    <div class="footer-nav-band">
+      <div class="footer-nav-inner">
+        <div class="footer-nav-brand">
+          <a href="index.html"><img src="images/logo-dark.png" alt="Everlight Photo Agency" class="footer-logo"></a>
+        </div>
+        <nav class="footer-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="footer-nav-right">
+          <a href="https://www.instagram.com/andrearlphotography" class="footer-ig-icon" target="_blank" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <p class="footer-nav-copy">© 2026 Everlight Photo Agency · Melbourne, Australia</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <div class="overlay-header">
+      <a href="index.html" class="logo-wrap">
+        <img src="images/logo-light.png" alt="Everlight Photo Agency" class="overlay-logo-img">
+      </a>
+      <button class="overlay-close" id="overlay-close" aria-label="Close menu">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(212,196,176,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <nav class="overlay-nav-links">
+      <a href="index.html"     class="overlay-nav-link">Home</a>
+      <a href="about.html"     class="overlay-nav-link">About</a>
+      <a href="services.html"  class="overlay-nav-link">Services</a>
+      <a href="portfolio.html" class="overlay-nav-link">Portfolio</a>
+      <a href="blog.html"      class="overlay-nav-link">Blog</a>
+      <a href="contact.html"   class="overlay-nav-link">Contact</a>
+      <a href="services.html#common-questions" class="overlay-nav-link overlay-nav-link-faq">FAQ</a>
+    </nav>
+    <div class="overlay-footer">
+      <a href="https://www.instagram.com/andrearlphotography" class="overlay-ig" target="_blank" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+        </svg>
+        @andrearlphotography
+      </a>
+      <a href="contact.html" class="overlay-book-btn">Book Now</a>
+    </div>
+  </div>
+
+  <script>
+    // ── Navbar scroll ─────────────────────────────────────────────
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    // ── Parallax hero ornaments ───────────────────────────────────
+    (function () {
+      const layers = [
+        { el: document.getElementById('plx-r1'), speed: 0.35 },
+        { el: document.getElementById('plx-r2'), speed: 0.58 },
+        { el: document.getElementById('plx-c1'), speed: 0.50 },
+        { el: document.getElementById('plx-c2'), speed: 0.28 },
+      ];
+      let ticking = false;
+      if (window.innerWidth > 768) {
+        window.addEventListener('scroll', function () {
+          if (!ticking) {
+            requestAnimationFrame(function () {
+              const y = window.scrollY;
+              layers.forEach(function (l) { if (l.el) l.el.style.transform = 'translateY(' + (y * l.speed) + 'px)'; });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      }
+    })();
+
+    // ── Validation helpers ────────────────────────────────────────
+    function validateInput(id, check) {
+      const el    = document.getElementById(id);
+      const errEl = document.getElementById('err-' + id);
+      const valid = check ? check(el.value.trim()) : el.value.trim().length > 0;
+      el.classList.toggle('error', !valid);
+      if (errEl) errEl.classList.toggle('visible', !valid);
+      return valid;
+    }
+    function validateEmail(val) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    }
+
+    // ── Form submission ───────────────────────────────────────────
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Validate required fields
+      const v1 = validateInput('cf-first');
+      const v2 = validateInput('cf-last');
+      const v3 = validateInput('cf-email', validateEmail);
+      const v4 = validateInput('cf-subject-text');
+      const v5 = validateInput('cf-message');
+
+      const contactChecked = document.querySelector('input[name="Preferred Contact"]:checked');
+      const errContact = document.getElementById('err-cf-contact');
+      if (!contactChecked) errContact.classList.add('visible');
+      else errContact.classList.remove('visible');
+
+      const banner = document.getElementById('cf-error-banner');
+      const allOk  = v1 && v2 && v3 && v4 && v5 && contactChecked;
+      banner.classList.toggle('visible', !allOk);
+      if (!allOk) return;
+
+      // Pre-fill hidden fields
+      const firstName    = document.getElementById('cf-first').value.trim();
+      const lastName     = document.getElementById('cf-last').value.trim();
+      const email        = document.getElementById('cf-email').value.trim();
+      const subjectText  = document.getElementById('cf-subject-text').value.trim();
+      const contactMethod = contactChecked.value;
+      const messageText  = document.getElementById('cf-message').value.trim();
+
+      document.getElementById('cf-subject').value = '✉️ New Message — ' + subjectText + ' · ' + firstName + ' ' + lastName;
+      document.getElementById('cf-replyto').value  = email;
+
+      // Loading state
+      const btn = document.getElementById('cf-submit');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      // ── Send via Web3Forms (notification to Everlight) ───────
+      try {
+        const formData = new FormData(this);
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.success) {
+
+          // ── Show confirmation panel ──────────────────────────
+          document.getElementById('conf-name').textContent    = firstName + ' ' + lastName;
+          document.getElementById('conf-email').textContent   = email;
+          document.getElementById('conf-subject').textContent = subjectText;
+          document.getElementById('conf-contact').textContent = contactMethod;
+
+          document.getElementById('contact-form').style.display  = 'none';
+          const conf = document.getElementById('cf-confirmation');
+          conf.classList.add('visible');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+
+      } catch (err) {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        banner.textContent = 'Something went wrong — please try again or contact us directly at info@everlightphotoagency.com';
+        banner.classList.add('visible');
+      }
+    });
+
+    // ── Mobile nav overlay ────────────────────────────────────────
+    const navHamburger    = document.getElementById('nav-hamburger');
+    const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+    const overlayClose    = document.getElementById('overlay-close');
+    if (navHamburger && mobileNavOverlay) {
+      navHamburger.addEventListener('click', () => {
+        mobileNavOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      overlayClose.addEventListener('click', () => {
+        mobileNavOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+      mobileNavOverlay.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNavOverlay.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
