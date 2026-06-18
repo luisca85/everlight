@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{email_subject}}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #ede8e0; font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; -webkit-text-size-adjust: 100%; }
+  a { text-decoration: none; }
+</style>
+</head>
+<body>
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#ede8e0; padding: 32px 16px;">
+<tr><td align="center">
+
+  <!-- ── WRAPPER ── -->
+  <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background:#f5f0ea; border:1px solid #d8cfc0;">
+
+    <!-- ── HEADER ── -->
+    <tr>
+      <td style="background:#2a2318; padding:28px 48px 24px; text-align:center; border-bottom:1px solid rgba(184,152,128,0.2);">
+        <p style="font-family:'Cinzel',Georgia,serif; font-size:18px; letter-spacing:0.3em; text-transform:uppercase; color:#d4b996; margin:0 0 4px;">Everlight</p>
+        <p style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(212,185,150,0.4); margin:0;">Photo Agency &nbsp;·&nbsp; Melbourne</p>
+        <div style="width:36px; height:1px; background:rgba(184,152,128,0.3); margin:16px auto 0;"></div>
+      </td>
+    </tr>
+
+    <!-- ── HERO ── -->
+    <tr>
+      <td style="background:#2a2318; padding:36px 48px 40px; text-align:center; border-bottom:3px solid #b89880;">
+        <p style="font-size:9px; letter-spacing:0.4em; text-transform:uppercase; color:rgba(212,185,150,0.45); margin:0 0 14px;">Thank You</p>
+        <h1 style="font-family:'Cinzel',Georgia,serif; font-size:26px; font-weight:400; color:#f5f0ea; letter-spacing:0.04em; line-height:1.4; margin:0 0 14px;">{{hero_title}}</h1>
+        <p style="font-size:13px; color:rgba(212,185,150,0.6); font-weight:300; line-height:1.75; margin:0; max-width:360px; display:inline-block;">{{hero_sub}}</p>
+      </td>
+    </tr>
+
+    <!-- ── BODY ── -->
+    <tr>
+      <td style="padding:40px 48px;">
+
+        <!-- Package badge -->
+        <p style="display:inline-block; font-size:9px; letter-spacing:0.2em; text-transform:uppercase; background:rgba(184,152,128,0.12); border:1px solid rgba(184,152,128,0.4); color:#b89880; padding:5px 14px; margin-bottom:20px;">{{package_name}}</p>
+
+        <!-- Greeting -->
+        <p style="font-size:15px; color:#2a2318; margin-bottom:20px; line-height:1.7;">
+          Hi <span style="font-family:Georgia,serif; font-style:italic; color:#8a6e58;">{{to_name}},</span>
+        </p>
+
+        <!-- Body text -->
+        <p style="font-size:13px; color:#5a4f45; line-height:1.9; margin-bottom:14px; font-weight:300;">{{body_p1}}</p>
+        <p style="font-size:13px; color:#5a4f45; line-height:1.9; margin-bottom:32px; font-weight:300;">{{body_p2}}</p>
+
+        <!-- Summary card -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e0d4c0; margin-bottom:32px;">
+          <!-- Card header -->
+          <tr>
+            <td style="background:#2a2318; padding:14px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(212,185,150,0.45);">Your Enquiry Summary</td>
+                  <td align="right" style="font-family:Georgia,serif; font-size:13px; color:#d4b996;">{{package_name}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Price row -->
+          <tr>
+            <td style="border-bottom:1px solid #e8dfd2; padding:11px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:12px; color:#8a7e75; font-weight:300;">Starting Investment</td>
+                  <td align="right" style="font-family:Georgia,serif; font-size:16px; color:#b89880;">{{package_price}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Event date row -->
+          <tr>
+            <td style="border-bottom:1px solid #e8dfd2; padding:11px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:12px; color:#8a7e75; font-weight:300;">Event Date</td>
+                  <td align="right" style="font-size:12px; color:#2a2318;">{{event_date}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Venue row -->
+          <tr>
+            <td style="border-bottom:1px solid #e8dfd2; padding:11px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:12px; color:#8a7e75; font-weight:300;">Venue / Location</td>
+                  <td align="right" style="font-size:12px; color:#2a2318;">{{venue}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Response time row -->
+          <tr>
+            <td style="border-bottom:1px solid #e8dfd2; padding:11px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:12px; color:#8a7e75; font-weight:300;">Response Time</td>
+                  <td align="right" style="font-size:12px; color:#2a2318;">Within 24–48 business hours</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Availability row -->
+          <tr>
+            <td style="border-bottom:1px solid #e8dfd2; padding:11px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:12px; color:#8a7e75; font-weight:300;">Your Availability</td>
+                  <td align="right" style="font-size:12px; color:#2a2318;">{{availability}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <!-- Preferred contact method row -->
+          <tr>
+            <td style="padding:11px 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-size:12px; color:#8a7e75; font-weight:300;">Preferred Contact</td>
+                  <td align="right" style="font-size:12px; color:#2a2318;">{{contact_method}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Next steps -->
+        <p style="font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:#b89880; margin-bottom:16px;">What Happens Next</p>
+
+        <!-- Step 1 -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+          <tr>
+            <td width="34" valign="top">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #b89880; text-align:center; line-height:22px; font-size:10px; color:#b89880; font-family:Georgia,serif;">1</div>
+            </td>
+            <td style="font-size:12px; color:#5a4f45; line-height:1.75; font-weight:300; padding-top:3px;">
+              <strong style="color:#2a2318; font-weight:500;">Date check</strong> — We'll confirm whether your date is still available within 24–48 hours.
+            </td>
+          </tr>
+        </table>
+
+        <!-- Step 2 -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:12px;">
+          <tr>
+            <td width="34" valign="top">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #b89880; text-align:center; line-height:22px; font-size:10px; color:#b89880; font-family:Georgia,serif;">2</div>
+            </td>
+            <td style="font-size:12px; color:#5a4f45; line-height:1.75; font-weight:300; padding-top:3px;">{{step2}}</td>
+          </tr>
+        </table>
+
+        <!-- Step 3 -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:36px;">
+          <tr>
+            <td width="34" valign="top">
+              <div style="width:24px; height:24px; border-radius:50%; border:1px solid #b89880; text-align:center; line-height:22px; font-size:10px; color:#b89880; font-family:Georgia,serif;">3</div>
+            </td>
+            <td style="font-size:12px; color:#5a4f45; line-height:1.75; font-weight:300; padding-top:3px;">{{step3}}</td>
+          </tr>
+        </table>
+
+        <!-- CTA -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:36px;">
+          <tr>
+            <td align="center">
+              <a href="https://everlightphotoagency.com/portfolio.html"
+                 style="display:inline-block; background:#2a2318; color:#d4b996; padding:14px 40px; font-size:10px; letter-spacing:0.25em; text-transform:uppercase; border:1px solid rgba(184,152,128,0.2);">
+                View Our Portfolio
+              </a>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Signature -->
+        <table width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #e0d4c0; padding-top:24px;">
+          <tr>
+            <td style="padding-top:24px; font-size:12px; color:#5a4f45; line-height:1.9; font-weight:300;">
+              Warmly,<br>
+              <span style="font-family:Georgia,serif; font-size:14px; color:#2a2318; font-style:italic;">Andrea</span><br>
+              <span style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:#b89880;">Everlight Photo Agency</span><br>
+              <a href="mailto:info@everlightphotoagency.com" style="color:#b89880; font-size:12px;">info@everlightphotoagency.com</a>
+              &nbsp;·&nbsp;
+              <span style="color:#8a7e75; font-size:12px;">+61 410 656 899</span><br>
+              <a href="https://www.instagram.com/andrearlphotography" style="color:#b89880; font-size:12px;">@andrearlphotography</a>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+    </tr>
+
+    <!-- ── FOOTER ── -->
+    <tr>
+      <td style="background:#2a2318; padding:20px 48px; text-align:center; border-top:1px solid rgba(184,152,128,0.1);">
+        <p style="font-size:10px; color:rgba(212,185,150,0.35); line-height:1.8; margin:0;">
+          You're receiving this because you submitted an enquiry via everlightphotoagency.com<br>
+          © 2025 Everlight Photo Agency &nbsp;·&nbsp; Melbourne, Australia
+        </p>
+      </td>
+    </tr>
+
+  </table>
+  <!-- ── END WRAPPER ── -->
+
+</td></tr>
+</table>
+</body>
+</html>

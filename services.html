@@ -520,6 +520,22 @@
       <span class="eyebrow-title">Collections &amp; Pricing</span>
       <div class="eyebrow-line"></div>
     </div>
+
+    <!-- Collection tabs: Photo Packages · Photo + Video Combos -->
+    <div class="collection-tabs" role="tablist" aria-label="Collection type">
+      <button class="collection-tab is-active" id="tab-btn-photo" role="tab" aria-selected="true" aria-controls="tab-photo" data-tab="photo">
+        <svg class="collection-tab-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.2-1.6A1 1 0 0 1 11 4h2a1 1 0 0 1 .8.4L15 6h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8z"/><circle cx="12" cy="13" r="3.2"/></svg>
+        <span class="collection-tab-text">Photo Packages</span>
+      </button>
+      <button class="collection-tab" id="tab-btn-combo" role="tab" aria-selected="false" aria-controls="tab-combo" data-tab="combo">
+        <svg class="collection-tab-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M22 8l-5 4 5 4V8z"/></svg>
+        <span class="collection-tab-text">Photo + Video</span>
+        <span class="collection-tab-flag">Combo Packages</span>
+      </button>
+    </div>
+
+    <!-- PANEL: Photo Packages -->
+    <div class="tab-panel" id="tab-photo" role="tabpanel" aria-labelledby="tab-btn-photo">
     <div class="packages-grid">
 
       <!-- 01 · The Intimate Experience -->
@@ -531,7 +547,7 @@
           <span id="svc-intimate-price">$1,600</span>
         </div>
         <div class="pkg-divider"></div>
-        <p class="pkg-coverage-hours">4 hours coverage</p>
+        <p class="pkg-coverage-hours">4 hours photography coverage</p>
         <div class="pkg-coverage">
           <div class="pkg-coverage-col">
             <p class="pkg-coverage-heading">
@@ -539,24 +555,12 @@
               Photography
             </p>
             <ul class="pkg-coverage-list">
+              <li>1 photographer</li>
               <li>Ceremony coverage</li>
               <li>Couple portraits</li>
-              <li>Family &amp; group photography</li>
-              <li>1 photographer</li>
-              <li>Edited high-resolution gallery</li>
-              <li>Private online delivery</li>
-            </ul>
-          </div>
-          <div class="pkg-coverage-col">
-            <p class="pkg-coverage-heading">
-              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 12h20M2 8h6M16 8h6M2 16h6M16 16h6"/></svg>
-              Film
-            </p>
-            <ul class="pkg-coverage-list">
-              <li>3–5 min cinematic highlight film</li>
-              <li>Ceremony highlights edit (not full ceremony)</li>
-              <li>Natural documentary-style coverage of key moments only</li>
-              <li>Professional audio capture when available</li>
+              <li>Family &amp; group photos</li>
+              <li>Professionally edited high-resolution images</li>
+              <li>Private online gallery</li>
             </ul>
           </div>
         </div>
@@ -582,13 +586,13 @@
       <div class="pkg-card featured" id="svc-pkg-signature" data-base="1800">
         <span class="pkg-featured-tag">✦ Most Requested</span>
         <h3 class="pkg-name">The Signature <em>Experience</em></h3>
-        <p class="pkg-desc">Full-day coverage with depth, intention and elegance.</p>
+        <p class="pkg-desc">A complete and refined coverage designed to document your day with depth, intention, and elegance.</p>
         <div class="pkg-price">
           <span class="pkg-price-from" id="svc-signature-label">From</span><br>
           <span id="svc-signature-price">$1,800</span>
         </div>
         <div class="pkg-divider"></div>
-        <p class="pkg-coverage-hours">6 hours coverage</p>
+        <p class="pkg-coverage-hours">6 hours of coverage</p>
         <div class="pkg-coverage">
           <div class="pkg-coverage-col">
             <p class="pkg-coverage-heading">
@@ -597,23 +601,12 @@
             </p>
             <ul class="pkg-coverage-list">
               <li>Getting ready moments</li>
-              <li>Ceremony coverage</li>
-              <li>Reception highlights</li>
+              <li>Ceremony &amp; reception highlights</li>
               <li>Couple portraits</li>
               <li>Family &amp; group photography</li>
-            </ul>
-          </div>
-          <div class="pkg-coverage-col">
-            <p class="pkg-coverage-heading">
-              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 12h20M2 8h6M16 8h6M2 16h6M16 16h6"/></svg>
-              Film
-            </p>
-            <ul class="pkg-coverage-list">
-              <li>5–7 min cinematic wedding film</li>
-              <li>Full ceremony edit</li>
-              <li>Selected speeches highlights (or full if time allows)</li>
-              <li>More structured storytelling</li>
-              <li>Better audio coverage &amp; pacing</li>
+              <li>1 lead photographer aligned with Everlight's vision</li>
+              <li>Professionally edited high-resolution images</li>
+              <li>Private online gallery</li>
             </ul>
           </div>
         </div>
@@ -661,6 +654,124 @@
       </div>
 
     </div>
+    </div><!-- /tab-photo -->
+
+    <!-- PANEL: Photo + Video Combos -->
+    <div class="tab-panel is-hidden" id="tab-combo" role="tabpanel" aria-labelledby="tab-btn-combo">
+    <div class="combo-intro">
+      <h3 class="combo-intro-title">Combo <em>Packages</em></h3>
+    </div>
+    <div class="packages-grid packages-grid--combo">
+
+      <!-- Combo 01 · The Intimate Experience -->
+      <div class="pkg-card" id="svc-pkg-combo-intimate" data-base="3100">
+        <h3 class="pkg-name">The Intimate <em>Experience</em></h3>
+        <p class="pkg-desc">For intimate weddings and registry-style celebrations.</p>
+        <div class="pkg-price">
+          <span class="pkg-price-from" id="svc-combo-intimate-label">From</span><br>
+          <span id="svc-combo-intimate-price">$3,100</span>
+          <span class="pkg-price-vision">AUD</span>
+        </div>
+        <div class="pkg-divider"></div>
+        <p class="pkg-coverage-hours">4 hours coverage</p>
+        <div class="pkg-coverage">
+          <div class="pkg-coverage-col">
+            <p class="pkg-coverage-heading">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M22 8l-6 4 6 4V8z"/></svg>
+              Photography
+            </p>
+            <ul class="pkg-coverage-list">
+              <li>Ceremony coverage</li>
+              <li>Couple portraits</li>
+              <li>Family &amp; group photography</li>
+              <li>1 photographer</li>
+              <li>Edited high-resolution gallery</li>
+              <li>Private online delivery</li>
+            </ul>
+          </div>
+          <div class="pkg-coverage-col">
+            <p class="pkg-coverage-heading">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 12h20M2 8h6M16 8h6M2 16h6M16 16h6"/></svg>
+              Film
+            </p>
+            <ul class="pkg-coverage-list">
+              <li>3–5 min cinematic highlight film</li>
+              <li>Ceremony highlights edit (not full ceremony)</li>
+              <li>Natural documentary-style coverage of key moments only</li>
+              <li>Professional audio capture when available</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pkg-addons">
+          <p class="pkg-addons-title">Optional Additions</p>
+          <label class="pkg-toggle" for="svc-combo-intimate-couple">
+            <span class="toggle-label">
+              <span class="toggle-name">Couple Photo Session (Pre-Wedding 2hrs)</span>
+              <span class="toggle-price">+$400</span>
+            </span>
+            <input type="checkbox" id="svc-combo-intimate-couple" data-pkg="svc-combo-intimate" data-price="400">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <button class="pkg-cta" onclick="enquireNow('svc-pkg-combo-intimate', 'Combo — The Intimate Experience')">Enquire Now</button>
+      </div>
+
+      <!-- Combo 02 · The Signature Experience (Most Requested) -->
+      <div class="pkg-card featured" id="svc-pkg-combo-signature" data-base="3600">
+        <span class="pkg-featured-tag">✦ Most Requested</span>
+        <h3 class="pkg-name">The Signature <em>Experience</em></h3>
+        <p class="pkg-desc">A complete and refined coverage designed to document your day with depth, intention, and elegance.</p>
+        <div class="pkg-price">
+          <span class="pkg-price-from" id="svc-combo-signature-label">From</span><br>
+          <span id="svc-combo-signature-price">$3,600</span>
+          <span class="pkg-price-vision">AUD</span>
+        </div>
+        <div class="pkg-divider"></div>
+        <p class="pkg-coverage-hours">6 hours coverage</p>
+        <div class="pkg-coverage">
+          <div class="pkg-coverage-col">
+            <p class="pkg-coverage-heading">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M22 8l-6 4 6 4V8z"/></svg>
+              Photography
+            </p>
+            <ul class="pkg-coverage-list">
+              <li>Getting ready moments</li>
+              <li>Ceremony coverage</li>
+              <li>Reception highlights</li>
+              <li>Couple portraits</li>
+              <li>Family &amp; group photography</li>
+            </ul>
+          </div>
+          <div class="pkg-coverage-col">
+            <p class="pkg-coverage-heading">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16M2 12h20M2 8h6M16 8h6M2 16h6M16 16h6"/></svg>
+              Film
+            </p>
+            <ul class="pkg-coverage-list">
+              <li>5–7 min cinematic wedding film</li>
+              <li>Full ceremony edit</li>
+              <li>Selected speeches highlights (or full if time allows)</li>
+              <li>More structured storytelling</li>
+              <li>Better audio coverage &amp; pacing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pkg-addons">
+          <p class="pkg-addons-title">Optional Additions</p>
+          <label class="pkg-toggle" for="svc-combo-signature-couple">
+            <span class="toggle-label">
+              <span class="toggle-name">Couple Photo Session (Pre-Wedding 2hrs)</span>
+              <span class="toggle-price">+$350</span>
+            </span>
+            <input type="checkbox" id="svc-combo-signature-couple" data-pkg="svc-combo-signature" data-price="350">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+        <button class="pkg-cta" onclick="enquireNow('svc-pkg-combo-signature', 'Combo — The Signature Experience')">Enquire Now</button>
+      </div>
+
+    </div>
+    </div><!-- /tab-combo -->
 
     <!-- Complementary plan: Engagement Session -->
     <div class="pkg-card-row">
@@ -1162,6 +1273,23 @@
     document.querySelectorAll('.pkg-toggle input[type="checkbox"]').forEach(cb => {
       cb.addEventListener('change', () => updatePackagePrice(cb.dataset.pkg));
     });
+
+    // Collection tabs — Photo Packages / Photo + Video Combos
+    (function () {
+      const tabs = document.querySelectorAll('.collection-tab');
+      function activate(name) {
+        tabs.forEach(function (t) {
+          const on = t.dataset.tab === name;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        document.getElementById('tab-photo').classList.toggle('is-hidden', name !== 'photo');
+        document.getElementById('tab-combo').classList.toggle('is-hidden', name !== 'combo');
+      }
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { activate(t.dataset.tab); });
+      });
+    })();
 
     // FAQ accordion — only one open at a time
     document.querySelectorAll('.faq-item').forEach(function(item) {

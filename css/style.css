@@ -712,6 +712,103 @@ ul { list-style: none; }
   gap: 16px;
   margin-top: 0;
 }
+.combo-intro {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 28px;
+}
+
+/* Collection tabs — Photo Packages · Photo + Video Combos */
+.collection-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 44px;
+}
+.collection-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  background: var(--white-linen);
+  border: 1px solid var(--border-mid);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.collection-tab:hover {
+  border-color: var(--champagne);
+  color: var(--dark);
+}
+.collection-tab.is-active {
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: var(--dark);
+  box-shadow: 0 6px 22px rgba(184,152,128,0.35);
+}
+.collection-tab-icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  flex-shrink: 0;
+}
+.collection-tab-flag {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--dark);
+  color: var(--champagne);
+}
+.tab-panel.is-hidden { display: none; }
+@media (max-width: 600px) {
+  .collection-tab { padding: 12px 18px; font-size: 11px; letter-spacing: 0.12em; }
+  .collection-tab-flag { display: none; }
+}
+.combo-intro-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark);
+  letter-spacing: 0.04em;
+}
+.combo-intro-title em {
+  font-family: var(--font-accent);
+  font-style: normal;
+  font-weight: 400;
+}
+.combo-intro-desc {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--taupe);
+  font-size: 14px;
+  margin-top: 8px;
+}
+.packages-grid--combo {
+  grid-template-columns: repeat(2, 1fr);
+}
+.packages-grid--combo .pkg-coverage {
+  grid-template-columns: 1fr 1fr;
+}
+.packages-grid--combo .pkg-coverage-col + .pkg-coverage-col {
+  border-top: none;
+  border-left: 1px solid var(--border);
+}
+@media (max-width: 880px) {
+  .packages-grid--combo { grid-template-columns: 1fr; }
+  .packages-grid--combo .pkg-coverage { grid-template-columns: 1fr; }
+  .packages-grid--combo .pkg-coverage-col + .pkg-coverage-col {
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
 .pkg-card {
   background: var(--white-linen);
   padding: 32px 36px;
